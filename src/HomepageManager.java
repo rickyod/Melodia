@@ -10,6 +10,8 @@
  */
 public class HomepageManager extends javax.swing.JFrame {
 
+    Login loginForm;    
+    
     /**
      * Creates new form HomepageManager
      */
@@ -127,8 +129,7 @@ public class HomepageManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new Login().setVisible(true);
-        dispose();
+       
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

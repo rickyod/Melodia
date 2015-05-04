@@ -8,12 +8,12 @@
  *
  * @author S U K A M T O
  */
-public class InsertDataPegawai extends javax.swing.JFrame {
+public class FormDataPegawaiBaru extends javax.swing.JFrame {
 
     /**
      * Creates new form InsertDataPegawai
      */
-    public InsertDataPegawai() {
+    public FormDataPegawaiBaru() {
         initComponents();
     }
 

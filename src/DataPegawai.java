@@ -8,12 +8,12 @@
  *
  * @author S U K A M T O
  */
-public class MelihatDataPegawai extends javax.swing.JFrame {
+public class DataPegawai extends javax.swing.JFrame {
 
     /**
      * Creates new form MelihatDataPegawai
      */
-    public MelihatDataPegawai() {
+    public DataPegawai() {
         initComponents();
     }
 

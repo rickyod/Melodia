@@ -8,12 +8,12 @@
  *
  * @author S U K A M T O
  */
-public class PendaftaranPaket extends javax.swing.JFrame {
+public class PendaftaranSiswaForm extends javax.swing.JFrame {
 
     /**
      * Creates new form PendaftaranPaket
      */
-    public PendaftaranPaket() {
+    public PendaftaranSiswaForm() {
         initComponents();
     }
 

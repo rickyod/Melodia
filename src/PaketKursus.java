@@ -8,12 +8,12 @@
  *
  * @author S U K A M T O
  */
-public class IUDPaketKursus extends javax.swing.JFrame {
+public class PaketKursus extends javax.swing.JFrame {
 
     /**
      * Creates new form HomeManager
      */
-    public IUDPaketKursus() {
+    public PaketKursus() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
