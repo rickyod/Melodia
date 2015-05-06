@@ -121,6 +121,11 @@ public class PaketKursus extends javax.swing.JFrame {
         jLabel1.setText("Paket Kursus");
 
         jButton1.setText("Insert");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Delete");
 
@@ -156,6 +161,11 @@ public class PaketKursus extends javax.swing.JFrame {
         jButton5.setText("Log Out");
 
         jButton6.setText("Back");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Lihat Laporan");
 
@@ -231,6 +241,16 @@ public class PaketKursus extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.cont.getInsertPaketForm().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.cont.getHomepageManager().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

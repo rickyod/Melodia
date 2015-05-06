@@ -123,9 +123,9 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        switch(jComboBox2.getSelectedIndex()){
-            case 0 : this.cont.getPaketKursus().setVisible(true);
-            case 1 : this.cont.getDataPegawai().setVisible(true);
-            case 2 : this.cont.getLaporanKehadiran().setVisible(true);
+            case 0 : this.cont.getPaketKursus().setVisible(true); break;
+            case 1 : this.cont.getDataPegawai().setVisible(true); break;
+            case 2 : this.cont.getLaporanKehadiran().setVisible(true); break;
         }
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

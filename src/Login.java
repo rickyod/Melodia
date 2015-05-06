@@ -131,7 +131,7 @@ public class Login extends javax.swing.JFrame {
 //        char[] myPass = { 's' , 'u' , 'k', 'a','m'};
 //        System.out.println(Arrays.equals(password, myPass));
 //        new HomepageManager().setVisible(true);
-        if(true){
+        if(false){
             controller.getHomepageManager().setVisible(true);
         }
         else
