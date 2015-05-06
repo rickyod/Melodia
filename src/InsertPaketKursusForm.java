@@ -6,15 +6,19 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class InsertPaketKursusForm extends javax.swing.JFrame {
 
+    Controller cont;
+    
     /**
      * Creates new form InsertPaketKursus
      */
-    public InsertPaketKursusForm() {
+    public InsertPaketKursusForm(Controller cont) {
+        this.cont = cont;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

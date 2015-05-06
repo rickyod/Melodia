@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class Login extends javax.swing.JFrame {
 
@@ -27,21 +27,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login(Controller controller) {
         this.controller = controller;
-//        try {
-//              conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
-//            Statement sta = conn.createStatement();
-//            String query = "select * from penduduk";
-//            ResultSet rs = sta.executeQuery(query);
-//            while (rs.next()) 
-//            {
-//                System.out.println(rs.getString("nama"));
-//            }
             initComponents();
             this.setLocationRelativeTo(null);
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
-//        }
-
     }
 
     /**
@@ -144,8 +131,13 @@ public class Login extends javax.swing.JFrame {
 //        char[] myPass = { 's' , 'u' , 'k', 'a','m'};
 //        System.out.println(Arrays.equals(password, myPass));
 //        new HomepageManager().setVisible(true);
-//        dispose();
-        controller.getHomepageManager().setVisible(true);
+        if(true){
+            controller.getHomepageManager().setVisible(true);
+        }
+        else
+        {
+            controller.getHomepageRec().setVisible(true);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

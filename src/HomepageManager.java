@@ -6,16 +6,17 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class HomepageManager extends javax.swing.JFrame {
 
-    Login loginForm;    
+    Controller cont;
     
     /**
      * Creates new form HomepageManager
      */
-    public HomepageManager() {
+    public HomepageManager(Controller cont) {
+        this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -54,7 +55,7 @@ public class HomepageManager extends javax.swing.JFrame {
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Melihat Paket Kursus", "Melihat data pegawai", "Melihat laporan kehadiran kursus", "Melihat laporan kehadiran kursus" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Paket Kursus", "Data Pegawai", "Laporan Kehadiran Kursus" }));
         jComboBox2.setName(""); // NOI18N
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,16 +122,21 @@ public class HomepageManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       switch(jComboBox2.getSelectedIndex()){
+            case 0 : this.cont.getPaketKursus().setVisible(true);
+            case 1 : this.cont.getDataPegawai().setVisible(true);
+            case 2 : this.cont.getLaporanKehadiran().setVisible(true);
+        }
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        
+        this.cont.getLogin().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     

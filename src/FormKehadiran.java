@@ -6,15 +6,19 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class FormKehadiran extends javax.swing.JFrame {
 
+    Controller cont;
+    
     /**
      * Creates new form DataPeserta
      */
-    public FormKehadiran() {
+    public FormKehadiran(Controller cont) {
+        this.cont = cont;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

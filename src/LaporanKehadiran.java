@@ -6,15 +6,19 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class LaporanKehadiran extends javax.swing.JFrame {
 
+    Controller cont;
+    
     /**
      * Creates new form LaporanKehadiran
      */
-    public LaporanKehadiran() {
+    public LaporanKehadiran(Controller cont) {
+        this.cont = cont;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

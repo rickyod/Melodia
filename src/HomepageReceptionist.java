@@ -6,14 +6,17 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class HomepageReceptionist extends javax.swing.JFrame {
 
+    Controller cont;
+    
     /**
      * Creates new form HomepageReceptionist
      */
-    public HomepageReceptionist() {
+    public HomepageReceptionist(Controller cont) {
+        this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
     }

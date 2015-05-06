@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author ASUS
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class Controller {
 
@@ -32,33 +32,34 @@ public class Controller {
     private Connection conn;
 
     public Controller() {
-        this.dataKehadiran = new DataKehadiran();
-        this.dataPegawai = new DataPegawai();
-        this.dataPeserta = new DataPeserta();
-        this.formDataPegawaiBaru = new FormDataPegawaiBaru();
-        this.formKehadiran = new FormKehadiran();
-        this.homepageManager = new HomepageManager();
-        this.homepageRec = new HomepageReceptionist();
-        this.insertPaketForm = new InsertPaketKursusForm();
-        this.paketKursus = new PaketKursus();
-        this.laporanKehadiran = new LaporanKehadiran();
-        this.laporanPaketKursus = new LaporanPaketKursus();
-        this.laporanPelaksanaan = new LaporanPelaksanaan();
+        this.dataKehadiran = new DataKehadiran(this);
+        this.dataPegawai = new DataPegawai(this);
+        this.dataPeserta = new DataPeserta(this);
+        this.formDataPegawaiBaru = new FormDataPegawaiBaru(this);
+        this.formKehadiran = new FormKehadiran(this);
+        this.homepageManager = new HomepageManager(this);
+        this.homepageRec = new HomepageReceptionist(this);
+        this.insertPaketForm = new InsertPaketKursusForm(this);
+        this.paketKursus = new PaketKursus(this);
+        this.laporanKehadiran = new LaporanKehadiran(this);
+        this.laporanPaketKursus = new LaporanPaketKursus(this);
+        this.laporanPelaksanaan = new LaporanPelaksanaan(this);
         this.login = new Login(this);
-        this.pendaftaranSiswa = new PendaftaranSiswaForm();
-        try {
-            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
-//            Statement sta = conn.createStatement();
+        this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
+//        try {
+//            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
+//        }
+        this.login.setVisible(true);
+        //contoh query
+//        Statement sta = conn.createStatement();
 //            String query = "select * from penduduk";
 //            ResultSet rs = sta.executeQuery(query);
-//            while (rs.next()) 
+//        while (rs.next()) 
 //            {
 //                System.out.println(rs.getString("nama"));
 //            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
-        }
-        this.login.setVisible(true);
     }
 
     public Connection getConn() {

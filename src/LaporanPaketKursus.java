@@ -6,15 +6,19 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class LaporanPaketKursus extends javax.swing.JFrame {
 
+    Controller cont;
+    
     /**
      * Creates new form LaporanPaketKursus
      */
-    public LaporanPaketKursus() {
+    public LaporanPaketKursus(Controller cont) {
+        this.cont = cont;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

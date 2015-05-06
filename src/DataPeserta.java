@@ -6,14 +6,17 @@
 
 /**
  *
- * @author S U K A M T O
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class DataPeserta extends javax.swing.JFrame {
 
+    Controller cont;
+            
     /**
      * Creates new form DataPeserta
      */
-    public DataPeserta() {
+    public DataPeserta(Controller cont) {
+        this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
     }
