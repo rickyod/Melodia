@@ -46,11 +46,11 @@ public class Controller {
         this.laporanPelaksanaan = new LaporanPelaksanaan(this);
         this.login = new Login(this);
         this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
-//        try {
-//            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
-//        }
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
+        }
         this.login.setVisible(true);
         //contoh query
 //        Statement sta = conn.createStatement();
