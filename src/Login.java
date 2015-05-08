@@ -1,4 +1,6 @@
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements KeyListener{
 
     private String id;
     private char[] password;
@@ -31,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         this.controller = controller;
         initComponents();
         this.setLocationRelativeTo(null);
+        addKeyListener(this);
     }
 
     /**
@@ -131,28 +134,31 @@ public class Login extends javax.swing.JFrame {
         this.password = this.jPasswordField1.getPassword();
         this.jPasswordField1.setText("");
         try {
-            String passwordChecker;
-            char[] passArr;
-            Statement sta = this.controller.getConn().createStatement();
-            String query = String.format("select * from Account where username='%s'", id);
-            ResultSet rs = sta.executeQuery(query);
             String idPegawai = "";
             String idJabatan = "";
             String jabatan = "";
+            String passwordChecker;
+            char[] passArr;
+            //checking password
+            Statement sta = this.controller.getConn().createStatement();
+            String query = String.format("select * from Account where username='%s'", id);
+            ResultSet rs = sta.executeQuery(query);
             rs.next();
             passwordChecker = rs.getString("password");
             passArr = passwordChecker.toCharArray();
             if (Arrays.equals(passArr, this.password)) {
                 idPegawai = rs.getString("idPegawai"); //mendapatkan idPegawai
-                query = String.format("select * from DataPegawai where idPegawai='%s'", idPegawai); //mencari pegawai 
-                ResultSet rs2 = sta.executeQuery(query);
-                rs2.next();
-                idJabatan = rs2.getString("jabatan"); //mendapatkan kode jabatan
-                query = String.format("select NamaJabatan from Jabatan where idJabatan ='%s'", idJabatan);
-
-                ResultSet rs3 = sta.executeQuery(query);
-                rs3.next();
-                jabatan = rs3.getString("NamaJabatan");
+                query = String.format("select\n"
+                        + "	Jabatan.NamaJabatan\n"
+                        + "from\n"
+                        + "	DataPegawai inner join Jabatan\n"
+                        + "on	\n"
+                        + "	DataPegawai.jabatan = Jabatan.idJabatan\n"
+                        + "where\n"
+                        + "	idPegawai = '%s'", idPegawai); //mencari pegawai 
+                rs = sta.executeQuery(query);
+                rs.next();
+                jabatan = rs.getString("NamaJabatan");
                 if (jabatan.equals("Manager")) {
                     controller.getHomepageManager().setVisible(true);
                 } else {
@@ -167,7 +173,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "An error occured.");
         }
 
-//        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -222,4 +227,22 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode()==KeyEvent.VK_ENTER){
+            System.out.println(e.getKeyCode()+" "+KeyEvent.VK_ENTER);
+            jButton1.doClick();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

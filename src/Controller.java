@@ -47,7 +47,7 @@ public class Controller {
         this.login = new Login(this);
         this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
         try {
-            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=;database=i13041");
+            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=schwammkopf07;database=i13041");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
         }
