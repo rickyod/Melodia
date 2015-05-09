@@ -30,6 +30,7 @@ public class Controller {
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
     private Connection conn;
+    private String loggedIn;
 
     public Controller() {
         this.dataKehadiran = new DataKehadiran(this);
@@ -47,7 +48,7 @@ public class Controller {
         this.login = new Login(this);
         this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
         try {
-            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=schwammkopf07;database=i13041");
+            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
         }
@@ -60,6 +61,14 @@ public class Controller {
 //            {
 //                System.out.println(rs.getString("nama"));
 //            }
+    }
+
+    public void setLoggedIn(String loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+    public String getLoggedIn() {
+        return loggedIn;
     }
 
     public Connection getConn() {
