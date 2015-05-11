@@ -1,3 +1,7 @@
+package receptionist;
+
+import main.Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,14 +12,14 @@
  *
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
-public class PaketKursus extends javax.swing.JFrame {
+public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
 
     Controller cont;
-            
+    
     /**
-     * Creates new form HomeManager
+     * Creates new form LaporanPelaksanaan
      */
-    public PaketKursus(Controller cont) {
+    public LaporanPelaksanaanKursusForm(Controller cont) {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,59 +34,23 @@ public class PaketKursus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        insertButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelPaketKursus = new javax.swing.JTable();
-        editButton = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
+        backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
-        lihatLaporanButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelPelaksanaanKursus = new javax.swing.JTable();
+        editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        insertButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Paket Kursus");
-
-        insertButton.setText("Insert");
-        insertButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertButtonActionPerformed(evt);
-            }
-        });
-
-        deleteButton.setText("Delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-
-        tabelPaketKursus.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID Paket", "Nama Paket", "Jenis Alat Musik", "Biaya"
-            }
-        ));
-        jScrollPane1.setViewportView(tabelPaketKursus);
-
-        editButton.setText("Edit");
-        editButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -96,17 +64,53 @@ public class PaketKursus extends javax.swing.JFrame {
             }
         });
 
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Pelaksanaan Kursus");
+
+        tabelPelaksanaanKursus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID Siswa", "Tanggal Kursus", "Jam Kursus", "Sisa Pertemuan"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelPelaksanaanKursus);
+
+        editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                editButtonActionPerformed(evt);
             }
         });
 
-        lihatLaporanButton.setText("Lihat Laporan");
-        lihatLaporanButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lihatLaporanButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
+        insertButton.setText("Insert");
+        insertButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertButtonActionPerformed(evt);
             }
         });
 
@@ -115,9 +119,9 @@ public class PaketKursus extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,8 +140,7 @@ public class PaketKursus extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lihatLaporanButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(insertButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(editButton)
@@ -148,7 +151,7 @@ public class PaketKursus extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -162,9 +165,8 @@ public class PaketKursus extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
-                    .addComponent(insertButton)
                     .addComponent(deleteButton)
-                    .addComponent(lihatLaporanButton))
+                    .addComponent(insertButton))
                 .addGap(6, 6, 6))
         );
 
@@ -175,29 +177,23 @@ public class PaketKursus extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
-    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-        this.cont.getInsertPaketForm().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_insertButtonActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.cont.getHomepageManager().setVisible(true);
+        this.cont.getHomepageRec().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void lihatLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanButtonActionPerformed
-        this.cont.getLaporanPaketKursus().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lihatLaporanButtonActionPerformed
-
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.cont.getLogin().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -209,8 +205,7 @@ public class PaketKursus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton lihatLaporanButton;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTable tabelPaketKursus;
+    private javax.swing.JTable tabelPelaksanaanKursus;
     // End of variables declaration//GEN-END:variables
 }

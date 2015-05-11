@@ -1,3 +1,7 @@
+package receptionist;
+
+import main.Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,14 +12,14 @@
  *
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
-public class DataKehadiran extends javax.swing.JFrame {
+public class DataPesertaForm extends javax.swing.JFrame {
 
     Controller cont;
-    
+            
     /**
      * Creates new form DataPeserta
      */
-    public DataKehadiran(Controller cont) {
+    public DataPesertaForm(Controller cont) {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,18 +34,24 @@ public class DataKehadiran extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelDataKehadiran = new javax.swing.JTable();
-        updateButton = new javax.swing.JButton();
+        tabelDataPeserta = new javax.swing.JTable();
+        editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        lihatLaporanButton = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Melodia Music Lesson");
@@ -53,46 +63,31 @@ public class DataKehadiran extends javax.swing.JFrame {
             }
         });
 
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Data Peserta");
 
-        jLabel1.setText("Data Kehadiran");
-
-        tabelDataKehadiran.setModel(new javax.swing.table.DefaultTableModel(
+        tabelDataPeserta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID Peserta", "Tanggal Kursus", "Status Hadir"
+                "ID Peserta", "Nama Lengkap", "Tanggal Lahir", "Alamat", "Nomor HP"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
+        ));
+        jScrollPane1.setViewportView(tabelDataPeserta);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tabelDataKehadiran);
-
-        updateButton.setText("Update");
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
+        editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
+                editButtonActionPerformed(evt);
             }
         });
 
@@ -100,13 +95,6 @@ public class DataKehadiran extends javax.swing.JFrame {
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
-            }
-        });
-
-        lihatLaporanButton.setText("Lihat Laporan");
-        lihatLaporanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lihatLaporanButtonActionPerformed(evt);
             }
         });
 
@@ -136,9 +124,8 @@ public class DataKehadiran extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lihatLaporanButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(updateButton)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(editButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton)))
                         .addContainerGap())))
@@ -159,28 +146,21 @@ public class DataKehadiran extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateButton)
-                    .addComponent(deleteButton)
-                    .addComponent(lihatLaporanButton))
+                    .addComponent(editButton)
+                    .addComponent(deleteButton))
                 .addGap(6, 6, 6))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        this.cont.getFormKehadiran().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_updateButtonActionPerformed
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        if(this.cont.getLoggedIn().equalsIgnoreCase("Manager")){
-            this.cont.getHomepageManager().setVisible(true);
-        } else{
-            this.cont.getHomepageRec().setVisible(true);
-        }
+        this.cont.getHomepageRec().setVisible(true);
         this.setVisible(false);
- 
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -188,26 +168,20 @@ public class DataKehadiran extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void lihatLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanButtonActionPerformed
-        this.cont.getLaporanKehadiran().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lihatLaporanButtonActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton lihatLaporanButton;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTable tabelDataKehadiran;
-    private javax.swing.JButton updateButton;
+    private javax.swing.JTable tabelDataPeserta;
     // End of variables declaration//GEN-END:variables
 }

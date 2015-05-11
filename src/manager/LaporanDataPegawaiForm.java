@@ -1,3 +1,7 @@
+package manager;
+
+import main.Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,14 +12,14 @@
  *
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
-public class DataPegawai extends javax.swing.JFrame {
+public class LaporanDataPegawaiForm extends javax.swing.JFrame {
 
     Controller cont;
             
     /**
      * Creates new form MelihatDataPegawai
      */
-    public DataPegawai(Controller cont) {
+    public LaporanDataPegawaiForm(Controller cont) {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);

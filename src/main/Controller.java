@@ -1,4 +1,19 @@
+package main;
 
+
+import receptionist.PendaftaranSiswaForm;
+import receptionist.LaporanPelaksanaanKursusForm;
+import receptionist.DataKehadiran;
+import receptionist.DataPesertaForm;
+import receptionist.HomepageReceptionist;
+import receptionist.LaporanKehadiranMainForm;
+import receptionist.UpdateKehadiranForm;
+import manager.LaporanPaketKursus;
+import manager.InsertPaketKursusForm;
+import manager.InsertDataPegawaiForm;
+import manager.LaporanDataPegawaiForm;
+import manager.HomepageManager;
+import manager.PaketKursusForm;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,17 +31,17 @@ import javax.swing.JOptionPane;
 public class Controller {
 
     private DataKehadiran dataKehadiran;
-    private DataPegawai dataPegawai;
-    private DataPeserta dataPeserta;
-    private FormDataPegawaiBaru formDataPegawaiBaru;
-    private FormKehadiran formKehadiran;
+    private LaporanDataPegawaiForm dataPegawai;
+    private DataPesertaForm dataPeserta;
+    private InsertDataPegawaiForm formDataPegawaiBaru;
+    private UpdateKehadiranForm formKehadiran;
     private HomepageManager homepageManager;
     private HomepageReceptionist homepageRec;
     private InsertPaketKursusForm insertPaketForm;
-    private PaketKursus paketKursus;
-    private LaporanKehadiran laporanKehadiran;
+    private PaketKursusForm paketKursus;
+    private LaporanKehadiranMainForm laporanKehadiran;
     private LaporanPaketKursus laporanPaketKursus;
-    private LaporanPelaksanaan laporanPelaksanaan;
+    private LaporanPelaksanaanKursusForm laporanPelaksanaan;
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
     private Connection conn;
@@ -34,17 +49,17 @@ public class Controller {
 
     public Controller() {
         this.dataKehadiran = new DataKehadiran(this);
-        this.dataPegawai = new DataPegawai(this);
-        this.dataPeserta = new DataPeserta(this);
-        this.formDataPegawaiBaru = new FormDataPegawaiBaru(this);
-        this.formKehadiran = new FormKehadiran(this);
+        this.dataPegawai = new LaporanDataPegawaiForm(this);
+        this.dataPeserta = new DataPesertaForm(this);
+        this.formDataPegawaiBaru = new InsertDataPegawaiForm(this);
+        this.formKehadiran = new UpdateKehadiranForm(this);
         this.homepageManager = new HomepageManager(this);
         this.homepageRec = new HomepageReceptionist(this);
         this.insertPaketForm = new InsertPaketKursusForm(this);
-        this.paketKursus = new PaketKursus(this);
-        this.laporanKehadiran = new LaporanKehadiran(this);
+        this.paketKursus = new PaketKursusForm(this);
+        this.laporanKehadiran = new LaporanKehadiranMainForm(this);
         this.laporanPaketKursus = new LaporanPaketKursus(this);
-        this.laporanPelaksanaan = new LaporanPelaksanaan(this);
+        this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
         this.login = new Login(this);
         this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
         try {
@@ -79,19 +94,19 @@ public class Controller {
         return dataKehadiran;
     }
 
-    public DataPegawai getDataPegawai() {
+    public LaporanDataPegawaiForm getDataPegawai() {
         return dataPegawai;
     }
 
-    public DataPeserta getDataPeserta() {
+    public DataPesertaForm getDataPeserta() {
         return dataPeserta;
     }
 
-    public FormDataPegawaiBaru getFormDataPegawaiBaru() {
+    public InsertDataPegawaiForm getFormDataPegawaiBaru() {
         return formDataPegawaiBaru;
     }
 
-    public FormKehadiran getFormKehadiran() {
+    public UpdateKehadiranForm getFormKehadiran() {
         return formKehadiran;
     }
 
@@ -107,11 +122,11 @@ public class Controller {
         return insertPaketForm;
     }
 
-    public PaketKursus getPaketKursus() {
+    public PaketKursusForm getPaketKursus() {
         return paketKursus;
     }
 
-    public LaporanKehadiran getLaporanKehadiran() {
+    public LaporanKehadiranMainForm getLaporanKehadiran() {
         return laporanKehadiran;
     }
 
@@ -119,7 +134,7 @@ public class Controller {
         return laporanPaketKursus;
     }
 
-    public LaporanPelaksanaan getLaporanPelaksanaan() {
+    public LaporanPelaksanaanKursusForm getLaporanPelaksanaan() {
         return laporanPelaksanaan;
     }
 
