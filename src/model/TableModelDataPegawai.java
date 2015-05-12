@@ -44,9 +44,9 @@ public class TableModelDataPegawai extends AbstractTableModel{
         switch (columnIndex) {
             case 0: return "ID Pegawai";
             case 1: return "Nama";
-            case 2: return "Tanggal lahir";
-            case 3: return "Umur";
-            case 4: return "Alamat";
+            case 2: return "Alamat";
+            case 3: return "Kota";
+            case 4: return "Tanggal lahir";
         }
         return null;
     }
@@ -57,9 +57,9 @@ public class TableModelDataPegawai extends AbstractTableModel{
         this.fireTableRowsDeleted(0, count);
     }
     
-    public void updateData(String[][] input){
+    public void updateData(String[][] input ,int count){
         this.data=input;
         this.fireTableRowsInserted(count, count);
-        this.count++;
+        this.count = count;
     }
 }

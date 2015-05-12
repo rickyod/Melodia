@@ -158,9 +158,9 @@ public class HomepageManager extends javax.swing.JFrame {
     }//GEN-LAST:event_paketKursusButtonActionPerformed
 
     private void dataPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPegawaiButtonActionPerformed
-        this.cont.getDataPegawai().setVisible(true);
-        this.cont.getDataPegawai().cek();
         this.cont.getDataPegawai().setTabel();
+        this.cont.getDataPegawai().setVisible(true);
+//        this.cont.getDataPegawai().cek();
         this.setVisible(false);
     }//GEN-LAST:event_dataPegawaiButtonActionPerformed
 
