@@ -43,7 +43,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         tabelPelaksanaanKursus = new javax.swing.JTable();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        insertButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,13 +106,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
             }
         });
 
-        insertButton.setText("Insert");
-        insertButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,8 +133,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(insertButton)
-                                .addGap(18, 18, 18)
                                 .addComponent(editButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(deleteButton)))
@@ -165,8 +155,7 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
-                    .addComponent(deleteButton)
-                    .addComponent(insertButton))
+                    .addComponent(deleteButton))
                 .addGap(6, 6, 6))
         );
 
@@ -187,10 +176,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_insertButtonActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -200,7 +185,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JButton insertButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

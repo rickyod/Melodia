@@ -1,6 +1,12 @@
 package manager;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import model.TableModelDataPegawai;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,15 +20,20 @@ import main.Controller;
  */
 public class LaporanDataPegawaiForm extends javax.swing.JFrame {
 
+    TableModelDataPegawai tabel;
     Controller cont;
+    ResultSet rs;
+    ResultSet rs2;
             
     /**
      * Creates new form MelihatDataPegawai
      */
-    public LaporanDataPegawaiForm(Controller cont) {
+    public LaporanDataPegawaiForm(Controller cont){
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
+        tabel = new TableModelDataPegawai();
+        this.tabelDataPegawai.setModel(tabel);
     }
 
     /**
@@ -184,6 +195,34 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void cek(){
+        try {
+            Statement sta = this.cont.getConn().createStatement();
+            String query = String.format("select * from DataPegawai");
+            this.rs = sta.executeQuery(query);
+            query = String.format("select COUNT(idPegawai) as jumlahPegawai from DataPegawai");
+            this.rs2 = sta.executeQuery(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void setTabel(){
+        tabel.clearData();
+        try {
+            String[][] input = new String[Integer.parseInt(rs2.getString("JumlahPegawai"))][5];
+            int j=0;
+            while(this.rs.next()){
+                for(int i=0;i<5;i++){
+                    input[j][i] = rs.getString(i);
+                }
+                j++;
+            }
+            tabel.updateData(input);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageManager().setVisible(true);
         this.setVisible(false);

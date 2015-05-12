@@ -44,7 +44,6 @@ public class PaketKursusForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-        lihatLaporanButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,13 +106,6 @@ public class PaketKursusForm extends javax.swing.JFrame {
             }
         });
 
-        lihatLaporanButton.setText("Lihat Laporan");
-        lihatLaporanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lihatLaporanButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,8 +132,7 @@ public class PaketKursusForm extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lihatLaporanButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(insertButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(editButton)
@@ -167,8 +158,7 @@ public class PaketKursusForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
                     .addComponent(insertButton)
-                    .addComponent(deleteButton)
-                    .addComponent(lihatLaporanButton))
+                    .addComponent(deleteButton))
                 .addGap(6, 6, 6))
         );
 
@@ -189,11 +179,6 @@ public class PaketKursusForm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void lihatLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanButtonActionPerformed
-        this.cont.getLaporanPaketKursus().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_lihatLaporanButtonActionPerformed
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -213,7 +198,6 @@ public class PaketKursusForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton lihatLaporanButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTable tabelPaketKursus;
     // End of variables declaration//GEN-END:variables

@@ -198,11 +198,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameFieldMouseClicked
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void loginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginButtonKeyPressed
-        
+    
     }//GEN-LAST:event_loginButtonKeyPressed
 
     private void usernameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyPressed

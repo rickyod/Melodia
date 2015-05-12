@@ -1,23 +1,24 @@
 package main;
 
 
-import receptionist.PendaftaranSiswaForm;
-import receptionist.LaporanPelaksanaanKursusForm;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import manager.HomepageManager;
+import manager.InsertDataPegawaiForm;
+import manager.InsertPaketKursusForm;
+import manager.LaporanDataPegawaiForm;
+import manager.LaporanPaketKursus;
+import manager.PaketKursusForm;
 import receptionist.DataKehadiran;
 import receptionist.DataPesertaForm;
 import receptionist.HomepageReceptionist;
 import receptionist.LaporanKehadiranMainForm;
+import receptionist.LaporanPelaksanaanKursusForm;
+import receptionist.PendaftaranSiswaForm;
 import receptionist.UpdateKehadiranForm;
-import manager.LaporanPaketKursus;
-import manager.InsertPaketKursusForm;
-import manager.InsertDataPegawaiForm;
-import manager.LaporanDataPegawaiForm;
-import manager.HomepageManager;
-import manager.PaketKursusForm;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -48,6 +49,11 @@ public class Controller {
     private String loggedIn;
 
     public Controller() {
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
+        }
         this.dataKehadiran = new DataKehadiran(this);
         this.dataPegawai = new LaporanDataPegawaiForm(this);
         this.dataPeserta = new DataPesertaForm(this);
@@ -62,11 +68,6 @@ public class Controller {
         this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
         this.login = new Login(this);
         this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
-        try {
-            conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
-        }
         this.login.setVisible(true);
         //contoh query
 //        Statement sta = conn.createStatement();
@@ -149,5 +150,7 @@ public class Controller {
     public static void main(String[] args) {
         new Controller();
     }
+
+    
 
 }

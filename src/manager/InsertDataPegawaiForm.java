@@ -54,13 +54,15 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         idPegawaiField = new javax.swing.JTextField();
         namaField = new javax.swing.JTextField();
-        tanggalLahirField = new javax.swing.JTextField();
         clearButton = new javax.swing.JButton();
         insertButton = new javax.swing.JButton();
         alamatField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         kotaBox = new javax.swing.JComboBox();
+        tanggalBox = new javax.swing.JComboBox();
+        bulanBox = new javax.swing.JComboBox();
+        tahunBox = new javax.swing.JComboBox();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +104,13 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
 
         jLabel7.setText("Kota :");
 
-        kotaBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        kotaBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Pilih Kota -", "Aceh", "Ambon", "Balikpapan", "Bandarlampung", "Bandung", "Banjar", "Banjarmasin", "Banjar Baru", "Batam", "Batu", "Bau-Bau", "Bekasi", "Bengkulu", "Bima", "Binjai", "Bitung", "Blitar", "Bogor", "Bontang", "BukitTinggi", "Cilegon", "Cimahi", "Cirebon", "Denpasar", "Depok", "Dumai", "Gorontalo", "Gunung Sitoli", "Jakarta Barat", "Jakarta Pusat", "Jakarta Selatan", "Jakarta Timur", "Jakarta Utara", "Jambi", "Jayapura", "Kediri", "Kendari", "Kotamobagu", "Kupang", "Langsa", "Lhokseumawe", "Lubuk Linggau", "Madiun", "Magelang", "Makassar", "Malang", "Manado", "Mataram", "Medan", "Metro", "Mojokerto", "Padang", "Padang Sidempuan", "Pagar Alam", "Palangkaraya", "Palembang", "Palopo", "Palu", "Pandang Panjang", "Pangkalpinang", "Pare-Pare", "Pariaman", "Pasuruan", "Payakumbuh", "Pekalongan", "Pekanbaru", "Pematang Siantar", "Pontianak", "Prabumulih", "Probolinggo", "Saban", "Salatiga", "Samarinda", "Sawahlunto", "Semarang", "Serang", "Sibolga", "Singkawang", "Solok", "Sorong", "Subulussalam", "Sukabumi", "Sungai Penuh", "Surabaya", "Surakarta", "Tangerang", "Tangerang Selatan", "Tanjung Balai", "Tanjung Pinang", "Tarakan", "Tasikmalaya", "Tebing Tinggi", "Tegal", "Ternate", "Tidore Kepulauan", "Tomohon", "Tual", "Yogyakarta" }));
+
+        tanggalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tanggal -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        bulanBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Bulan -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        tahunBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tahun -", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,11 +124,20 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idPegawaiField)
-                            .addComponent(tanggalLahirField)
-                            .addComponent(namaField)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idPegawaiField)
+                                    .addComponent(namaField)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(tanggalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(bulanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tahunBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(clearButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,7 +171,9 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(tanggalLahirField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tanggalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bulanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tahunBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -230,14 +249,17 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         this.idPegawaiField.setText("");
         this.namaField.setText("");
-        this.tanggalLahirField.setText("");
+        this.tanggalBox.setSelectedIndex(0);
+        this.bulanBox.setSelectedIndex(0);
+        this.tahunBox.setSelectedIndex(0);
+        this.kotaBox.setSelectedIndex(0);
         this.alamatField.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         try {
                 statement = conn.createStatement();
-                String query = String.format("INSERT INTO DataPegawai values('%s','%s','%s','%s','%s','R01')", idPegawaiField.getText(),namaField.getText(),alamatField.getText(),kotaBox.getName(),tanggalLahirField.getText());       
+                String query = String.format("INSERT INTO DataPegawai values('%s','%s','%s','%s','%s','R01')", idPegawaiField.getText(),namaField.getText(),alamatField.getText(),kotaBox.getName(),(tanggalBox.getSelectedItem()+"-"+bulanBox.getSelectedItem()+"-"+tahunBox.getSelectedItem()));       
                 ResultSet rs = statement.executeQuery(query);
             } catch (SQLException ex) {
                 Logger.getLogger(InsertPaketKursusForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -247,6 +269,7 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamatField;
     private javax.swing.JButton backButton;
+    private javax.swing.JComboBox bulanBox;
     private javax.swing.JButton clearButton;
     private javax.swing.JTextField idPegawaiField;
     private javax.swing.JButton insertButton;
@@ -262,6 +285,7 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
     private javax.swing.JComboBox kotaBox;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField namaField;
-    private javax.swing.JTextField tanggalLahirField;
+    private javax.swing.JComboBox tahunBox;
+    private javax.swing.JComboBox tanggalBox;
     // End of variables declaration//GEN-END:variables
 }
