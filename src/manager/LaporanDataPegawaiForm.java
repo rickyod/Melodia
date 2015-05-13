@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import main.Controller;
 import model.TableModelDataPegawai;
 
@@ -20,10 +21,20 @@ import model.TableModelDataPegawai;
  */
 public class LaporanDataPegawaiForm extends javax.swing.JFrame {
 
-    TableModelDataPegawai tabel;
+    TableModelDataPegawai tabelModel;
     Controller cont;
     int size;
 
+    public JTable getTabelDataPegawai() {
+        return tabelDataPegawai;
+    }
+
+    public TableModelDataPegawai getTabel() {
+        return tabelModel;
+    }
+
+    
+    
     /**
      * Creates new form MelihatDataPegawai
      */
@@ -31,8 +42,8 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
-        tabel = new TableModelDataPegawai();
-        this.tabelDataPegawai.setModel(tabel);
+        tabelModel = new TableModelDataPegawai();
+        this.tabelDataPegawai.setModel(tabelModel);
         this.tabelDataPegawai.getColumnModel().getColumn(0).setPreferredWidth(150);
         this.tabelDataPegawai.getColumnModel().getColumn(1).setPreferredWidth(200);
         this.tabelDataPegawai.getColumnModel().getColumn(2).setPreferredWidth(400);
@@ -199,7 +210,7 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setTabel() {
-        tabel.clearData();
+        tabelModel.clearData();
         try {
             int count = 0;
             Statement sta = this.cont.getConn().createStatement();
@@ -218,7 +229,7 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
                 input[count][4] = rs.getString("tglLahir");
                 count++;
             }
-            tabel.updateData(input,size);
+            tabelModel.updateData(input,size);
         } catch (SQLException ex) {
             Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -235,6 +246,7 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
+        this.cont.getFormDataPegawaiBaru().clear();
         this.cont.getFormDataPegawaiBaru().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_insertButtonActionPerformed
@@ -248,8 +260,11 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         if(confirm==0){
             try {
                 Statement sta = this.cont.getConn().createStatement();
-                String idPegawai = tabelDataPegawai.getValueAt(tabelDataPegawai.getSelectedRow(), 0)+"";
-                String query = String.format("delete from DataPegawai where idPegawai = '%s'",idPegawai);
+                int index = tabelDataPegawai.getSelectedRow();
+                String idPegawai = tabelDataPegawai.getValueAt(index, 0)+"";
+                String query = String.format("delete from Account where idPegawai = '%s'",idPegawai);
+                sta.execute(query);
+                query = String.format("delete from DataPegawai where idPegawai = '%s'",idPegawai);
                 boolean exe = sta.execute(query);
                 if(!exe){
                     JOptionPane.showMessageDialog(null, "Successful.");
@@ -258,7 +273,7 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
                 }
-                tabel.deleteData(tabelDataPegawai.getSelectedRow());
+                this.setTabel();
             } catch (SQLException ex) {
                 Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
             }

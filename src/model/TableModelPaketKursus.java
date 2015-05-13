@@ -33,12 +33,7 @@ public class TableModelPaketKursus extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         return data[rowIndex][columnIndex];
     }
-    
-    @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return true;
-    }
-    
+
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {

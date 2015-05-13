@@ -35,11 +35,6 @@ public class TableModelDataPeserta extends AbstractTableModel{
     }
     
     @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return true;
-    }
-    
-    @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
             case 0: return "ID Peserta";

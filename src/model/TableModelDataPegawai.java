@@ -35,11 +35,6 @@ public class TableModelDataPegawai extends AbstractTableModel{
     }
     
     @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return true;
-    }
-    
-    @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
             case 0: return "ID Pegawai";
@@ -51,7 +46,6 @@ public class TableModelDataPegawai extends AbstractTableModel{
         return null;
         
     }
-
     
     public void clearData()
     {
@@ -63,10 +57,5 @@ public class TableModelDataPegawai extends AbstractTableModel{
         this.data=input;
         this.fireTableRowsInserted(count, count);
         this.count = count;
-    }
-    
-    public void deleteData(int index){
-        this.fireTableRowsDeleted(index, index);
-        this.count--;
     }
 }
