@@ -246,8 +246,22 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION); 
         if(confirm==0){
-            int index = this.tabelDataPegawai.getSelectedRow();
-            this.tabel.deleteData(index);
+            try {
+                Statement sta = this.cont.getConn().createStatement();
+                String idPegawai = tabelDataPegawai.getValueAt(tabelDataPegawai.getSelectedRow(), 0)+"";
+                String query = String.format("delete from DataPegawai where idPegawai = '%s'",idPegawai);
+                boolean exe = sta.execute(query);
+                if(!exe){
+                    JOptionPane.showMessageDialog(null, "Successful.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
+                }
+                tabel.deleteData(tabelDataPegawai.getSelectedRow());
+            } catch (SQLException ex) {
+                Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

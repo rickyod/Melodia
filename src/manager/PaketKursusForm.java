@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import main.Controller;
 import model.TableModelPaketKursus;
 
@@ -214,8 +215,11 @@ public class PaketKursusForm extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int index = this.tabelPaketKursus.getSelectedRow();
-        this.tabel.deleteData(index);
+        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION); 
+        if(confirm==0){
+            int index = this.tabelPaketKursus.getSelectedRow();
+            this.tabel.deleteData(index);
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
