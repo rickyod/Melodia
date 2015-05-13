@@ -1,6 +1,13 @@
 package receptionist;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import manager.LaporanDataPegawaiForm;
+import model.TableModelDataKehadiran;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +20,8 @@ import main.Controller;
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class DataKehadiran extends javax.swing.JFrame {
-
+    
+    TableModelDataKehadiran tabel;
     Controller cont;
     
     /**
@@ -23,6 +31,8 @@ public class DataKehadiran extends javax.swing.JFrame {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
+        tabel = new TableModelDataKehadiran();
+        this.tabelDataKehadiran.setModel(tabel);
     }
 
     /**
@@ -172,6 +182,30 @@ public class DataKehadiran extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setTabel() {
+        tabel.clearData();
+        try {
+            int count = 0;
+            Statement sta = this.cont.getConn().createStatement();
+            String query = "select COUNT(idPeserta) as jumlahKehadiran from DataKehadiran";
+            ResultSet rs = sta.executeQuery(query);
+            rs.next();
+            int size = rs.getInt("jumlahKehadiran");
+            String[][] input = new String[size][3];
+            query = "select * from DataKehadiran";
+            rs = sta.executeQuery(query);
+            while(rs.next()){
+                input[count][0] = rs.getString("idPeserta");
+                input[count][1] = rs.getString("tanggalKursus");
+                input[count][2] = rs.getString("statusHadir");
+                count++;
+            }
+            tabel.updateData(input,size);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         this.cont.getFormKehadiran().setVisible(true);
         this.setVisible(false);
@@ -184,7 +218,6 @@ public class DataKehadiran extends javax.swing.JFrame {
             this.cont.getHomepageRec().setVisible(true);
         }
         this.setVisible(false);
- 
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -198,7 +231,7 @@ public class DataKehadiran extends javax.swing.JFrame {
     }//GEN-LAST:event_lihatLaporanButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     

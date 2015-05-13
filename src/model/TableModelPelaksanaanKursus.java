@@ -11,11 +11,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
-public class TableModelDataPegawai extends AbstractTableModel{
+public class TableModelPelaksanaanKursus extends AbstractTableModel{
     protected String[][] data;
     protected int count;
 
-    public TableModelDataPegawai() {
+    public TableModelPelaksanaanKursus() {
         
     }
 
@@ -26,7 +26,7 @@ public class TableModelDataPegawai extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 4;
     }
 
     @Override
@@ -42,17 +42,14 @@ public class TableModelDataPegawai extends AbstractTableModel{
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
-            case 0: return "ID Pegawai";
-            case 1: return "Nama";
-            case 2: return "Alamat";
-            case 3: return "Kota";
-            case 4: return "Tanggal lahir";
+            case 0: return "ID Siswa";
+            case 1: return "Tanggal Kursus";
+            case 2: return "Jam Kursus";
+            case 3: return "Sisa Pertemuan";
         }
         return null;
-        
     }
 
-    
     public void clearData()
     {
         this.count=0;

@@ -1,6 +1,12 @@
 package manager;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import model.TableModelPaketKursus;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +20,7 @@ import main.Controller;
  */
 public class PaketKursusForm extends javax.swing.JFrame {
 
+    TableModelPaketKursus tabel;
     Controller cont;
             
     /**
@@ -22,7 +29,9 @@ public class PaketKursusForm extends javax.swing.JFrame {
     public PaketKursusForm(Controller cont) {
         this.cont = cont;
         initComponents();
+        tabel = new TableModelPaketKursus();
         this.setLocationRelativeTo(null);
+        this.tabelPaketKursus.setModel(tabel);
     }
 
     /**
@@ -165,6 +174,31 @@ public class PaketKursusForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setTabel() {
+        tabel.clearData();
+        try {
+            int count = 0;
+            Statement sta = this.cont.getConn().createStatement();
+            String query = "select COUNT(idPaket) as jumlahPaket from PaketKursus";
+            ResultSet rs = sta.executeQuery(query);
+            rs.next();
+            int size = rs.getInt("jumlahPaket");
+            String[][] input = new String[size][4];
+            query = "select * from PaketKursus";
+            rs = sta.executeQuery(query);
+            while(rs.next()){
+                input[count][0] = rs.getString("idPaket");
+                input[count][1] = rs.getString("namaPaket");
+                input[count][2] = rs.getString("jenisAlatMusik");
+                input[count][3] = rs.getString("biaya");
+                count++;
+            }
+            tabel.updateData(input,size);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
@@ -180,7 +214,8 @@ public class PaketKursusForm extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        int index = this.tabelPaketKursus.getSelectedRow();
+        this.tabel.deleteData(index);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed

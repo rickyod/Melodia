@@ -1,6 +1,13 @@
 package receptionist;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import manager.LaporanDataPegawaiForm;
+import model.TableModelPelaksanaanKursus;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +21,7 @@ import main.Controller;
  */
 public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
 
+    TableModelPelaksanaanKursus tabel;
     Controller cont;
     
     /**
@@ -23,6 +31,8 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
+        tabel = new TableModelPelaksanaanKursus();
+        this.tabelPelaksanaanKursus.setModel(tabel);
     }
 
     /**
@@ -162,12 +172,41 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setTabel() {
+        tabel.clearData();
+        try {
+            int count = 0;
+            Statement sta = this.cont.getConn().createStatement();
+            String query = "select COUNT(idSiswa) as jumlahSiswa from PelaksanaanKursus";
+            ResultSet rs = sta.executeQuery(query);
+            rs.next();
+            int size = rs.getInt("jumlahSiswa");
+            String[][] input = new String[size][4];
+            query = "select * from PelaksanaanKursus";
+            rs = sta.executeQuery(query);
+            while(rs.next()){
+                input[count][0] = rs.getString("id Siswa");
+                input[count][1] = rs.getString("Tanggal Kursus");
+                input[count][2] = rs.getString("Jam Kursus");
+                input[count][3] = rs.getString("Sisa Pertemuan");
+                count++;
+            }
+            tabel.updateData(input,size);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.cont.getHomepageRec().setVisible(true);
+        if(this.cont.getLoggedIn().equals("Manager")){
+            this.cont.getHomepageManager().setVisible(true);
+        } else{
+            this.cont.getHomepageRec().setVisible(true);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 

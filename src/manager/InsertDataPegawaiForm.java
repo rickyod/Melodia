@@ -259,8 +259,10 @@ public class InsertDataPegawaiForm extends javax.swing.JFrame {
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         try {
                 statement = conn.createStatement();
-                String query = String.format("INSERT INTO DataPegawai values('%s','%s','%s','%s','%s','R01')", idPegawaiField.getText(),namaField.getText(),alamatField.getText(),kotaBox.getName(),(tanggalBox.getSelectedItem()+"-"+bulanBox.getSelectedItem()+"-"+tahunBox.getSelectedItem()));       
+                String query = String.format("INSERT INTO DataPegawai values('%s','%s','%s','%s','%s','R01')", idPegawaiField.getText(),namaField.getText(),alamatField.getText(),kotaBox.getSelectedItem(),(tahunBox.getSelectedItem()+"-"+bulanBox.getSelectedItem()+"-"+tanggalBox.getSelectedItem()));       
                 ResultSet rs = statement.executeQuery(query);
+                this.cont.getDataPegawai().setVisible(true);
+                this.setVisible(false);
             } catch (SQLException ex) {
                 Logger.getLogger(InsertPaketKursusForm.class.getName()).log(Level.SEVERE, null, ex);
             }

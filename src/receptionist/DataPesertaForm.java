@@ -1,6 +1,13 @@
 package receptionist;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import manager.LaporanDataPegawaiForm;
+import model.TableModelDataPeserta;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +21,7 @@ import main.Controller;
  */
 public class DataPesertaForm extends javax.swing.JFrame {
 
+    TableModelDataPeserta tabel;
     Controller cont;
             
     /**
@@ -23,6 +31,8 @@ public class DataPesertaForm extends javax.swing.JFrame {
         this.cont = cont;
         initComponents();
         this.setLocationRelativeTo(null);
+        tabel = new TableModelDataPeserta();
+        this.tabelDataPeserta.setModel(tabel);
     }
 
     /**
@@ -154,6 +164,32 @@ public class DataPesertaForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setTabel() {
+        tabel.clearData();
+        try {
+            int count = 0;
+            Statement sta = this.cont.getConn().createStatement();
+            String query = "select COUNT(idPeserta) as jumlahPeserta from DataPeserta";
+            ResultSet rs = sta.executeQuery(query);
+            rs.next();
+            int size = rs.getInt("jumlahPeserta");
+            String[][] input = new String[size][5];
+            query = "select * from DataPeserta";
+            rs = sta.executeQuery(query);
+            while(rs.next()){
+                input[count][0] = rs.getString("id Peserta");
+                input[count][1] = rs.getString("Nama Lengkap");
+                input[count][2] = rs.getString("Tanggal Lahir");
+                input[count][3] = rs.getString("Alamat");
+                input[count][4] = rs.getString("Nomor Telepon");
+                count++;
+            }
+            tabel.updateData(input,size);
+        } catch (SQLException ex) {
+            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed

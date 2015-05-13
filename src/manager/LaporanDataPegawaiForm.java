@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import main.Controller;
 import model.TableModelDataPegawai;
 
@@ -32,6 +33,11 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         tabel = new TableModelDataPegawai();
         this.tabelDataPegawai.setModel(tabel);
+        this.tabelDataPegawai.getColumnModel().getColumn(0).setPreferredWidth(150);
+        this.tabelDataPegawai.getColumnModel().getColumn(1).setPreferredWidth(200);
+        this.tabelDataPegawai.getColumnModel().getColumn(2).setPreferredWidth(400);
+        this.tabelDataPegawai.getColumnModel().getColumn(3).setPreferredWidth(100);
+        this.tabelDataPegawai.getColumnModel().getColumn(4).setPreferredWidth(200);
     }
 
     /**
@@ -192,18 +198,6 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//    public void cek(){
-//        try {
-//            Statement sta = this.cont.getConn().createStatement();
-//            String query = String.format("select * from DataPegawai");
-//            this.rs = sta.executeQuery(query);
-//            query = String.format("select COUNT(idPegawai) as jumlahPegawai from DataPegawai");
-//            this.rs2 = sta.executeQuery(query);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-//    
     public void setTabel() {
         tabel.clearData();
         try {
@@ -225,18 +219,11 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
                 count++;
             }
             tabel.updateData(input,size);
-//            tabel.updateData(input);
-//            String fileInput = jTextField1.getText();
-//            tabel.clearData();
-//            peta.loadFromFile(fileInput);
-//            Titik[][] titik = peta.getPasanganTitik();
-//            for (int i = 0; i < titik.length; i++) {
-//                tabel.updateData(titik);
-//            }
         } catch (SQLException ex) {
             Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageManager().setVisible(true);
         this.setVisible(false);
@@ -253,11 +240,15 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION); 
+        if(confirm==0){
+            int index = this.tabelDataPegawai.getSelectedRow();
+            this.tabel.deleteData(index);
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
