@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import manager.EditDataPegawaiForm;
 import manager.HomepageManager;
 import manager.InsertDataPegawaiForm;
 import manager.InsertPaketKursusForm;
@@ -35,6 +36,7 @@ public class Controller {
     private LaporanDataPegawaiForm laporanDataPegawai;
     private DataPesertaForm dataPeserta;
     private InsertDataPegawaiForm insertDataPegawaiForm;
+    private EditDataPegawaiForm editDataPegawaiForm;
     private UpdateKehadiranForm updateKehadiran;
     private HomepageManager homepageManager;
     private HomepageReceptionist homepageRec;
@@ -60,6 +62,7 @@ public class Controller {
         this.laporanDataPegawai = new LaporanDataPegawaiForm(this);
         this.dataPeserta = new DataPesertaForm(this);
         this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
+        this.editDataPegawaiForm = new EditDataPegawaiForm(this);
         this.updateKehadiran = new UpdateKehadiranForm(this);
         this.homepageManager = new HomepageManager(this);
         this.homepageRec = new HomepageReceptionist(this);
@@ -111,6 +114,10 @@ public class Controller {
 
     public InsertDataPegawaiForm getInsertDataPegawaiForm() {
         return insertDataPegawaiForm;
+    }
+
+    public EditDataPegawaiForm getEditDataPegawaiForm() {
+        return editDataPegawaiForm;
     }
 
     public UpdateKehadiranForm getUpdateKehadiran() {

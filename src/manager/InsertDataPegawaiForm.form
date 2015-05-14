@@ -373,7 +373,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="32">
-                <StringItem index="0" value="- Tanggal -"/>
+                <StringItem index="0" value="Tanggal"/>
                 <StringItem index="1" value="1"/>
                 <StringItem index="2" value="2"/>
                 <StringItem index="3" value="3"/>
@@ -413,7 +413,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="13">
-                <StringItem index="0" value="- Bulan -"/>
+                <StringItem index="0" value="Bulan"/>
                 <StringItem index="1" value="1"/>
                 <StringItem index="2" value="2"/>
                 <StringItem index="3" value="3"/>
@@ -434,7 +434,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="62">
-                <StringItem index="0" value="- Tahun -"/>
+                <StringItem index="0" value="Tahun"/>
                 <StringItem index="1" value="1950"/>
                 <StringItem index="2" value="1951"/>
                 <StringItem index="3" value="1952"/>

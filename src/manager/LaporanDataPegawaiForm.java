@@ -250,6 +250,14 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        int index = tabelDataPegawai.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            this.cont.getEditDataPegawaiForm().setData(tabelDataPegawai.getValueAt(index, 0) + "");
+            this.cont.getEditDataPegawaiForm().setVisible(true);
+            this.setVisible(false);
+        }
 
     }//GEN-LAST:event_editButtonActionPerformed
 
