@@ -32,10 +32,10 @@ import receptionist.UpdateKehadiranForm;
 public class Controller {
 
     private DataKehadiran dataKehadiran;
-    private LaporanDataPegawaiForm dataPegawai;
+    private LaporanDataPegawaiForm laporanDataPegawai;
     private DataPesertaForm dataPeserta;
-    private InsertDataPegawaiForm formDataPegawaiBaru;
-    private UpdateKehadiranForm formKehadiran;
+    private InsertDataPegawaiForm insertDataPegawaiForm;
+    private UpdateKehadiranForm updateKehadiran;
     private HomepageManager homepageManager;
     private HomepageReceptionist homepageRec;
     private InsertPaketKursusForm insertPaketForm;
@@ -46,19 +46,21 @@ public class Controller {
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
     private Connection conn;
+    private Statement statement;
     private String loggedIn;
 
     public Controller() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
+            statement = conn.createStatement();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
         }
         this.dataKehadiran = new DataKehadiran(this);
-        this.dataPegawai = new LaporanDataPegawaiForm(this);
+        this.laporanDataPegawai = new LaporanDataPegawaiForm(this);
         this.dataPeserta = new DataPesertaForm(this);
-        this.formDataPegawaiBaru = new InsertDataPegawaiForm(this);
-        this.formKehadiran = new UpdateKehadiranForm(this);
+        this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
+        this.updateKehadiran = new UpdateKehadiranForm(this);
         this.homepageManager = new HomepageManager(this);
         this.homepageRec = new HomepageReceptionist(this);
         this.insertPaketForm = new InsertPaketKursusForm(this);
@@ -91,24 +93,28 @@ public class Controller {
         return conn;
     }
 
+    public Statement getStatement() {
+        return statement;
+    }
+
     public DataKehadiran getDataKehadiran() {
         return dataKehadiran;
     }
 
-    public LaporanDataPegawaiForm getDataPegawai() {
-        return dataPegawai;
+    public LaporanDataPegawaiForm getLaporanDataPegawai() {
+        return laporanDataPegawai;
     }
 
     public DataPesertaForm getDataPeserta() {
         return dataPeserta;
     }
 
-    public InsertDataPegawaiForm getFormDataPegawaiBaru() {
-        return formDataPegawaiBaru;
+    public InsertDataPegawaiForm getInsertDataPegawaiForm() {
+        return insertDataPegawaiForm;
     }
 
-    public UpdateKehadiranForm getFormKehadiran() {
-        return formKehadiran;
+    public UpdateKehadiranForm getUpdateKehadiran() {
+        return updateKehadiran;
     }
 
     public HomepageManager getHomepageManager() {

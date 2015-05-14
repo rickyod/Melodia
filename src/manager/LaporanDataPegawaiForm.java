@@ -33,8 +33,6 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         return tabelModel;
     }
 
-    
-    
     /**
      * Creates new form MelihatDataPegawai
      */
@@ -213,15 +211,15 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         tabelModel.clearData();
         try {
             int count = 0;
-            Statement sta = this.cont.getConn().createStatement();
-            String query = "select COUNT(idPegawai) as jumlahPegawai from DataPegawai";
+            Statement sta = this.cont.getStatement();
+            String query = "select COUNT(idPegawai) as jumlahPegawai from DataPegawai where jabatan not in ('M01')";
             ResultSet rs = sta.executeQuery(query);
             rs.next();
             int size = rs.getInt("jumlahPegawai");
             String[][] input = new String[size][5];
-            query = "select * from DataPegawai";
+            query = "select * from DataPegawai where jabatan not in ('M01')";
             rs = sta.executeQuery(query);
-            while(rs.next()){
+            while (rs.next()) {
                 input[count][0] = rs.getString("idPegawai");
                 input[count][1] = rs.getString("namaPegawai");
                 input[count][2] = rs.getString("alamat");
@@ -229,12 +227,12 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
                 input[count][4] = rs.getString("tglLahir");
                 count++;
             }
-            tabelModel.updateData(input,size);
+            tabelModel.updateData(input, size);
         } catch (SQLException ex) {
             Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageManager().setVisible(true);
         this.setVisible(false);
@@ -246,36 +244,38 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-        this.cont.getFormDataPegawaiBaru().clear();
-        this.cont.getFormDataPegawaiBaru().setVisible(true);
+        this.cont.getInsertDataPegawaiForm().clear();
+        this.cont.getInsertDataPegawaiForm().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        
+
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION); 
-        if(confirm==0){
-            try {
-                Statement sta = this.cont.getConn().createStatement();
-                int index = tabelDataPegawai.getSelectedRow();
-                String idPegawai = tabelDataPegawai.getValueAt(index, 0)+"";
-                String query = String.format("delete from Account where idPegawai = '%s'",idPegawai);
-                sta.execute(query);
-                query = String.format("delete from DataPegawai where idPegawai = '%s'",idPegawai);
-                boolean exe = sta.execute(query);
-                if(!exe){
-                    JOptionPane.showMessageDialog(null, "Successful.");
+        int index = tabelDataPegawai.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION);
+            if (confirm == 0) {
+                try {
+                    Statement sta = this.cont.getStatement();
+                    String idPegawai = tabelDataPegawai.getValueAt(index, 0) + "";
+                    String query = String.format("delete from Account where idPegawai = '%s'", idPegawai);
+                    sta.execute(query);
+                    query = String.format("delete from DataPegawai where idPegawai = '%s'", idPegawai);
+                    boolean exe = sta.execute(query);
+                    if (!exe) {
+                        JOptionPane.showMessageDialog(null, "Successful.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
+                    }
+                    this.setTabel();
+                } catch (SQLException ex) {
+                    Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
-                }
-                this.setTabel();
-            } catch (SQLException ex) {
-                Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_deleteButtonActionPerformed

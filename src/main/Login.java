@@ -2,15 +2,10 @@ package main;
 
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,13 +21,13 @@ public class Login extends javax.swing.JFrame {
 
     private String id;
     private char[] password;
-    private Controller controller;
+    private Controller cont;
 
     /**
      * Creates new form Login
      */
     public Login(Controller controller) {
-        this.controller = controller;
+        this.cont = controller;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -157,7 +152,7 @@ public class Login extends javax.swing.JFrame {
             String passwordChecker;
             char[] passArr;
             //checking password
-            Statement sta = this.controller.getConn().createStatement();
+            Statement sta = this.cont.getStatement();
             String query = String.format("select * from Account where username='%s'", id);
             ResultSet rs = sta.executeQuery(query);
             rs.next();
@@ -176,11 +171,11 @@ public class Login extends javax.swing.JFrame {
                 rs = sta.executeQuery(query);
                 rs.next();
                 jabatan = rs.getString("NamaJabatan");
-                this.controller.setLoggedIn(jabatan);
+                this.cont.setLoggedIn(jabatan);
                 if (jabatan.equals("Manager")) {
-                    controller.getHomepageManager().setVisible(true);
+                    cont.getHomepageManager().setVisible(true);
                 } else {
-                    controller.getHomepageRec().setVisible(true);
+                    cont.getHomepageRec().setVisible(true);
                 }
                 this.setVisible(false);
             } else {

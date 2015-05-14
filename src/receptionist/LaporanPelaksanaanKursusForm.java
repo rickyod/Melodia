@@ -176,7 +176,7 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         tabel.clearData();
         try {
             int count = 0;
-            Statement sta = this.cont.getConn().createStatement();
+            Statement sta = this.cont.getStatement();
             String query = "select COUNT(idSiswa) as jumlahSiswa from PelaksanaanKursus";
             ResultSet rs = sta.executeQuery(query);
             rs.next();

@@ -186,7 +186,7 @@ public class DataKehadiran extends javax.swing.JFrame {
         tabel.clearData();
         try {
             int count = 0;
-            Statement sta = this.cont.getConn().createStatement();
+            Statement sta = this.cont.getStatement();
             String query = "select COUNT(idPeserta) as jumlahKehadiran from DataKehadiran";
             ResultSet rs = sta.executeQuery(query);
             rs.next();
@@ -207,7 +207,7 @@ public class DataKehadiran extends javax.swing.JFrame {
     }
     
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        this.cont.getFormKehadiran().setVisible(true);
+        this.cont.getUpdateKehadiran().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_updateButtonActionPerformed
 
