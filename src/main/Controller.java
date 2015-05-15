@@ -1,6 +1,5 @@
 package main;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -52,31 +51,37 @@ public class Controller {
     private Connection conn;
     private Statement statement;
     private String loggedIn;
+    private boolean connected;
 
     public Controller() {
+
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
             statement = conn.createStatement();
+            connected = true;
         } catch (SQLException ex) {
+            connected = false;
             JOptionPane.showMessageDialog(null, "Koneksi ke database gagal , coba periksa koneksi internet.");
         }
-        this.dataKehadiran = new DataKehadiran(this);
-        this.laporanDataPegawai = new LaporanDataPegawaiForm(this);
-        this.dataPeserta = new DataPesertaForm(this);
-        this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
-        this.editDataPegawaiForm = new EditDataPegawaiForm(this);
-        this.editPaketKursusForm = new EditPaketKursusForm(this);
-        this.updateKehadiran = new UpdateKehadiranForm(this);
-        this.homepageManager = new HomepageManager(this);
-        this.homepageRec = new HomepageReceptionist(this);
-        this.insertPaketForm = new InsertPaketKursusForm(this);
-        this.paketKursus = new PaketKursusForm(this);
-        this.laporanKehadiran = new LaporanKehadiranMainForm(this);
-        this.laporanPaketKursus = new LaporanPaketKursus(this);
-        this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
-        this.login = new Login(this);
-        this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
-        this.login.setVisible(true);
+        if (connected) {
+            this.dataKehadiran = new DataKehadiran(this);
+            this.laporanDataPegawai = new LaporanDataPegawaiForm(this);
+            this.dataPeserta = new DataPesertaForm(this);
+            this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
+            this.editDataPegawaiForm = new EditDataPegawaiForm(this);
+            this.editPaketKursusForm = new EditPaketKursusForm(this);
+            this.updateKehadiran = new UpdateKehadiranForm(this);
+            this.homepageManager = new HomepageManager(this);
+            this.homepageRec = new HomepageReceptionist(this);
+            this.insertPaketForm = new InsertPaketKursusForm(this);
+            this.paketKursus = new PaketKursusForm(this);
+            this.laporanKehadiran = new LaporanKehadiranMainForm(this);
+            this.laporanPaketKursus = new LaporanPaketKursus(this);
+            this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
+            this.login = new Login(this);
+            this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
+            this.login.setVisible(true);
+        }
         //contoh query
 //        Statement sta = conn.createStatement();
 //            String query = "select * from penduduk";
@@ -122,7 +127,7 @@ public class Controller {
     public EditDataPegawaiForm getEditDataPegawaiForm() {
         return editDataPegawaiForm;
     }
-    
+
     public EditPaketKursusForm getEditPaketKursusForm() {
         return editPaketKursusForm;
     }

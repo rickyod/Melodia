@@ -155,6 +155,7 @@ public class HomepageReceptionist extends javax.swing.JFrame {
 
     private void pendaftaranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendaftaranButtonActionPerformed
         this.cont.getPendaftaranSiswa().setVisible(true);
+        this.cont.getPendaftaranSiswa().setPaketKursus();
         this.setVisible(false);
     }//GEN-LAST:event_pendaftaranButtonActionPerformed
 
