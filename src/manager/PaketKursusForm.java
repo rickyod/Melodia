@@ -201,7 +201,14 @@ public class PaketKursusForm extends javax.swing.JFrame {
     }
     
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+        int index = tabelPaketKursus.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            this.cont.getEditPaketKursusForm().setData(tabelPaketKursus.getValueAt(index, 0) + "");
+            this.cont.getEditPaketKursusForm().setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
@@ -226,8 +233,6 @@ public class PaketKursusForm extends javax.swing.JFrame {
                     Statement sta = this.cont.getStatement();
                     String idAlat = tabelPaketKursus.getValueAt(index, 2) + "";
                     String query = String.format("delete from PaketKursus where jenisAlatMusik = '%s'", idAlat);
-                    sta.execute(query);
-                    query = String.format("delete from ALatMusik where idAlat = '%s'", idAlat);
                     boolean exe = sta.execute(query);
                     if (!exe) {
                         JOptionPane.showMessageDialog(null, "Successful.");

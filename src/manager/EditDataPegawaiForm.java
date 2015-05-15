@@ -16,7 +16,7 @@ import main.Controller;
 
 /**
  *
- * @author ASUS
+ * @author Riky Setiawan 2013730041 , Sukamto 2013730026
  */
 public class EditDataPegawaiForm extends javax.swing.JFrame {
 
@@ -360,8 +360,6 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

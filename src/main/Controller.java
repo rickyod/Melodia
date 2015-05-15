@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import manager.EditDataPegawaiForm;
+import manager.EditPaketKursusForm;
 import manager.HomepageManager;
 import manager.InsertDataPegawaiForm;
 import manager.InsertPaketKursusForm;
@@ -37,6 +38,7 @@ public class Controller {
     private DataPesertaForm dataPeserta;
     private InsertDataPegawaiForm insertDataPegawaiForm;
     private EditDataPegawaiForm editDataPegawaiForm;
+    private EditPaketKursusForm editPaketKursusForm;
     private UpdateKehadiranForm updateKehadiran;
     private HomepageManager homepageManager;
     private HomepageReceptionist homepageRec;
@@ -63,6 +65,7 @@ public class Controller {
         this.dataPeserta = new DataPesertaForm(this);
         this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
         this.editDataPegawaiForm = new EditDataPegawaiForm(this);
+        this.editPaketKursusForm = new EditPaketKursusForm(this);
         this.updateKehadiran = new UpdateKehadiranForm(this);
         this.homepageManager = new HomepageManager(this);
         this.homepageRec = new HomepageReceptionist(this);
@@ -119,6 +122,10 @@ public class Controller {
     public EditDataPegawaiForm getEditDataPegawaiForm() {
         return editDataPegawaiForm;
     }
+    
+    public EditPaketKursusForm getEditPaketKursusForm() {
+        return editPaketKursusForm;
+    }
 
     public UpdateKehadiranForm getUpdateKehadiran() {
         return updateKehadiran;
@@ -163,7 +170,4 @@ public class Controller {
     public static void main(String[] args) {
         new Controller();
     }
-
-    
-
 }
