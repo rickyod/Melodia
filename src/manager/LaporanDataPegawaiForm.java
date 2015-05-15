@@ -234,8 +234,8 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
     }
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.cont.getHomepageManager().setVisible(true);
         this.setVisible(false);
+        this.cont.getHomepageManager().setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -258,7 +258,6 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
             this.cont.getEditDataPegawaiForm().setVisible(true);
             this.setVisible(false);
         }
-
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed

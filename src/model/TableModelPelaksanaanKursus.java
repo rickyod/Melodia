@@ -56,9 +56,4 @@ public class TableModelPelaksanaanKursus extends AbstractTableModel{
         this.fireTableRowsInserted(count, count);
         this.count = count;
     }
-    
-    public void deleteData(int index){
-        this.fireTableRowsDeleted(index, index);
-        this.count--;
-    }
 }

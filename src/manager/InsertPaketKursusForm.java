@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -107,7 +108,7 @@ public class InsertPaketKursusForm extends javax.swing.JFrame {
 
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
 
-        jenisAlatMusikBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Pilih Alat Musik -", "Gitar", "Piano", "Drum", "Bass", "Saxophone", "Gamelan", " " }));
+        jenisAlatMusikBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih Alat Musik", "Gitar", "Piano", "Drum", "Bass", "Saxophone", "Gamelan", " " }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,6 +223,13 @@ public class InsertPaketKursusForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void clear() {
+        this.idPaketField.setText("");
+        this.namaPaketField.setText("");
+        this.jenisAlatMusikBox.setSelectedIndex(0);
+        this.biayaField.setText("");
+    }
+    
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         if(idPaketField.getText().equals("")||namaPaketField.getText().equals("")||jenisAlatMusikBox.getSelectedIndex()==0||biayaField.getText().equals("")){
             jLabel7.setText("Ada field yang belum diisi.");
@@ -230,8 +238,21 @@ public class InsertPaketKursusForm extends javax.swing.JFrame {
             try {
                 jLabel7.setText("");
                 statement = conn.createStatement();
-                String query = String.format("INSERT INTO PaketKursus values('%s','%s','%s','%s')", idPaketField.getText(),namaPaketField.getText(),jenisAlatMusikBox.getName(),biayaField.getText());
+                String query = String.format("select idAlat from AlatMusik Where namaAlat = '%s'", jenisAlatMusikBox.getSelectedItem());
                 ResultSet rs = statement.executeQuery(query);
+                rs.next();
+                String idAlat = rs.getString("idAlat");
+                query = String.format("INSERT INTO PaketKursus values('%s','%s','%s','%s')", idPaketField.getText(),namaPaketField.getText(),idAlat,biayaField.getText());
+                boolean exe = statement.execute(query);
+                if(!exe){
+                    JOptionPane.showMessageDialog(null, "Data berhasil dimasukkan!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "An error occured.");
+                }
+                this.cont.getPaketKursus().setTabel();
+                this.setVisible(exe);
+                this.cont.getPaketKursus().setVisible(!exe);
             } catch (SQLException ex) {
                 Logger.getLogger(InsertPaketKursusForm.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -239,10 +260,7 @@ public class InsertPaketKursusForm extends javax.swing.JFrame {
     }//GEN-LAST:event_insertButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-        idPaketField.setText("");
-        namaPaketField.setText("");
-        jenisAlatMusikBox.setSelectedIndex(0);
-        biayaField.setText("");
+        clear();
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed

@@ -154,14 +154,14 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void paketKursusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paketKursusButtonActionPerformed
         this.cont.getPaketKursus().setVisible(true);
+        this.cont.getPaketKursus().setTabel();
         this.setVisible(false);
     }//GEN-LAST:event_paketKursusButtonActionPerformed
 
     private void dataPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPegawaiButtonActionPerformed
         this.cont.getLaporanDataPegawai().setTabel();
-        this.cont.getLaporanDataPegawai().setVisible(true);
-//        this.cont.getDataPegawai().cek();
         this.setVisible(false);
+        this.cont.getLaporanDataPegawai().setVisible(true);
     }//GEN-LAST:event_dataPegawaiButtonActionPerformed
 
     private void laporanPelaksanaanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanPelaksanaanButtonActionPerformed

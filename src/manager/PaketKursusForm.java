@@ -21,7 +21,7 @@ import model.TableModelPaketKursus;
  */
 public class PaketKursusForm extends javax.swing.JFrame {
 
-    TableModelPaketKursus tabel;
+    TableModelPaketKursus TableModel;
     Controller cont;
             
     /**
@@ -30,9 +30,9 @@ public class PaketKursusForm extends javax.swing.JFrame {
     public PaketKursusForm(Controller cont) {
         this.cont = cont;
         initComponents();
-        tabel = new TableModelPaketKursus();
+        TableModel = new TableModelPaketKursus();
         this.setLocationRelativeTo(null);
-        this.tabelPaketKursus.setModel(tabel);
+        this.tabelPaketKursus.setModel(TableModel);
     }
 
     /**
@@ -176,7 +176,7 @@ public class PaketKursusForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setTabel() {
-        tabel.clearData();
+        TableModel.clearData();
         try {
             int count = 0;
             Statement sta = this.cont.getStatement();
@@ -194,7 +194,7 @@ public class PaketKursusForm extends javax.swing.JFrame {
                 input[count][3] = rs.getString("biaya");
                 count++;
             }
-            tabel.updateData(input,size);
+            TableModel.updateData(input,size);
         } catch (SQLException ex) {
             Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -206,6 +206,7 @@ public class PaketKursusForm extends javax.swing.JFrame {
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         this.cont.getInsertPaketForm().setVisible(true);
+        this.cont.getInsertPaketForm().clear();
         this.setVisible(false);
     }//GEN-LAST:event_insertButtonActionPerformed
 
@@ -215,10 +216,29 @@ public class PaketKursusForm extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION); 
-        if(confirm==0){
-            int index = this.tabelPaketKursus.getSelectedRow();
-            this.tabel.deleteData(index);
+        int index = tabelPaketKursus.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION);
+            if (confirm == 0) {
+                try {
+                    Statement sta = this.cont.getStatement();
+                    String idAlat = tabelPaketKursus.getValueAt(index, 2) + "";
+                    String query = String.format("delete from PaketKursus where jenisAlatMusik = '%s'", idAlat);
+                    sta.execute(query);
+                    query = String.format("delete from ALatMusik where idAlat = '%s'", idAlat);
+                    boolean exe = sta.execute(query);
+                    if (!exe) {
+                        JOptionPane.showMessageDialog(null, "Successful.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
+                    }
+                    this.setTabel();
+                } catch (SQLException ex) {
+                    Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

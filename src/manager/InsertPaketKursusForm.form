@@ -242,7 +242,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="8">
-                <StringItem index="0" value="- Pilih Alat Musik -"/>
+                <StringItem index="0" value="Pilih Alat Musik"/>
                 <StringItem index="1" value="Gitar"/>
                 <StringItem index="2" value="Piano"/>
                 <StringItem index="3" value="Drum"/>
