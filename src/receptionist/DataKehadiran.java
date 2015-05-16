@@ -78,27 +78,34 @@ public class DataKehadiran extends javax.swing.JFrame {
 
         tabelDataKehadiran.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID Peserta", "Tanggal Kursus", "Status Hadir"
+                "ID Peserta", "Tanggal Kursus", "ID Paket", "Status Kehadiran"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tabelDataKehadiran);
@@ -208,6 +215,7 @@ public class DataKehadiran extends javax.swing.JFrame {
     
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         this.cont.getUpdateKehadiran().setVisible(true);
+        this.cont.getUpdateKehadiran().setTanggal();
         this.setVisible(false);
     }//GEN-LAST:event_updateButtonActionPerformed
 
@@ -234,6 +242,9 @@ public class DataKehadiran extends javax.swing.JFrame {
         
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+    public void setTable() {
+        
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -247,4 +258,6 @@ public class DataKehadiran extends javax.swing.JFrame {
     private javax.swing.JTable tabelDataKehadiran;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
+
+    
 }
