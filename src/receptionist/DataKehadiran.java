@@ -224,6 +224,7 @@ public class DataKehadiran extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void lihatLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanButtonActionPerformed
+        this.cont.getLaporanKehadiran().clear();
         this.cont.getLaporanKehadiran().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_lihatLaporanButtonActionPerformed

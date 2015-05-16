@@ -241,6 +241,7 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
 
     private void lihatLaporanKehadiranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanKehadiranButtonActionPerformed
         try {
+            this.table.clearData();
             int count = 0;
             String tanggalAwal = tahunAwalBox.getSelectedItem()+"-"+bulanAwalBox.getSelectedItem()+"-"+tanggalAwalBox.getSelectedItem();
             String tanggalAkhir = tahunAkhirBox.getSelectedItem()+"-"+bulanAkhirBox.getSelectedItem()+"-"+tanggalAkhirBox.getSelectedItem();
@@ -275,7 +276,17 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
-
+    public void clear()
+    {
+        this.tahunAwalBox.setSelectedIndex(0);
+        this.tahunAkhirBox.setSelectedIndex(0);
+        this.bulanAwalBox.setSelectedIndex(0);
+        this.bulanAkhirBox.setSelectedIndex(0);
+        this.tanggalAwalBox.setSelectedIndex(0);
+        this.tanggalAkhirBox.setSelectedIndex(0);
+        this.table.clearData();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox bulanAkhirBox;
