@@ -1,4 +1,5 @@
 package receptionist;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,6 +29,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
     String[] idPaket;
     String[] idJadwal;
     int[] biaya;
+    boolean isSet;
 
     /**
      * Creates new form PendaftaranPaket
@@ -35,6 +37,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
     public PendaftaranSiswaForm(Controller cont) {
         this.cont = cont;
         this.statement = cont.getStatement();
+        this.isSet = false;
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -309,6 +312,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageRec().setVisible(true);
+        this.isSet = false;
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -319,54 +323,56 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
 
     private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
         try {
-                String namaLengkap = this.namaLengkapField.getText();
-                String tglLahir = this.tahunBox.getSelectedItem()+"-"+this.bulanBox.getSelectedItem()+"-"+this.tanggalBox.getSelectedItem();
-                String alamat = this.alamatField.getText();
-                String nomorHp = this.nomorHPField.getText();
-                String idSiswa = this.idSiswaField.getText();
-                String idPegawai = this.idReceptionistField.getText();
-                int sisaPertemuan = 5;
-                String idPaket = this.idPaket[this.paketComboBox.getSelectedIndex()];
-                String idJadwal = this.idJadwal[this.jadwalBox.getSelectedIndex()];
-                int totalBiaya = biaya[this.paketComboBox.getSelectedIndex()];
-                String tglDaftar = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-                String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','%d'",idSiswa, namaLengkap, tglLahir, alamat, nomorHp,idPaket,idJadwal,tglDaftar,sisaPertemuan);
-                statement.execute(query);
-                        
-                String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-                query = String.format("INSERT INTO values ('%s','%s','%s','%s','%s','%s','%s'",idSiswa,namaLengkap,this.cont.getIdPegawai(),idPaket,totalBiaya,tglDaftar,timeStamp);
-                statement.execute(query);
-                this.cont.getFormTransaksi().setVisible(true);
-                this.setVisible(false);
-            } catch (SQLException ex) {
-                Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            String namaLengkap = this.namaLengkapField.getText();
+            String tglLahir = this.tahunBox.getSelectedItem() + "-" + this.bulanBox.getSelectedItem() + "-" + this.tanggalBox.getSelectedItem();
+            String alamat = this.alamatField.getText();
+            String nomorHp = this.nomorHPField.getText();
+            String idSiswa = this.idSiswaField.getText();
+            String idPegawai = this.idReceptionistField.getText();
+            int sisaPertemuan = 5;
+            String idPaket = this.idPaket[this.paketComboBox.getSelectedIndex()];
+            String idJadwal = this.idJadwal[this.jadwalBox.getSelectedIndex()];
+            int totalBiaya = biaya[this.paketComboBox.getSelectedIndex()];
+            String tglDaftar = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','%d'", idSiswa, namaLengkap, tglLahir, alamat, nomorHp, idPaket, idJadwal, tglDaftar, sisaPertemuan);
+            statement.execute(query);
+
+            String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+            query = String.format("INSERT INTO values ('%s','%s','%s','%s','%s','%s','%s'", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaket, totalBiaya, tglDaftar, timeStamp);
+            statement.execute(query);
+            this.cont.getFormTransaksi().setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_daftarButtonActionPerformed
 
     private void paketComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paketComboBoxActionPerformed
-        try{
-            this.labelHarga.setText("Rp"+this.biaya[this.paketComboBox.getSelectedIndex()]+",-");
-            jadwalBox.removeAllItems();
-            String query = String.format("select COUNT(idJadwal) as jumlahJadwal from Jadwal where idPaket = '%s'",idPaket[this.paketComboBox.getSelectedIndex()]);
-            ResultSet rs = statement.executeQuery(query);
-            int size = rs.getInt("jumlahJadwal");
-            idJadwal = new String[size];
-            query = String.format("select * from Jadwal where idPaket = '%s'",idPaket[this.paketComboBox.getSelectedIndex()]);
-            rs = statement.executeQuery(query);
-            int i = 0;
-            while(rs.next()){
-                jadwalBox.addItem(rs.getString("hari")+", " +rs.getString("jamMulai") + " - " + rs.getString("jamAkhir"));
-                idJadwal[i] = rs.getString("idJadwal");
-                i++;
+        if (isSet) {
+            try {
+                this.labelHarga.setText("Rp" + this.biaya[this.paketComboBox.getSelectedIndex()] + ",-");
+                jadwalBox.removeAllItems();
+                String query = String.format("select COUNT(idJadwal) as jumlahJadwal from Jadwal where idPaket = '%s'", idPaket[this.paketComboBox.getSelectedIndex()]);
+                ResultSet rs = statement.executeQuery(query);
+                System.out.println(Arrays.toString(idPaket));
+                int size = rs.getInt("jumlahJadwal");
+                idJadwal = new String[size];
+                query = String.format("select * from Jadwal where idPaket = '%s'", idPaket[this.paketComboBox.getSelectedIndex()]);
+                rs = statement.executeQuery(query);
+                int i = 0;
+                while (rs.next()) {
+                    jadwalBox.addItem(rs.getString("hari") + ", " + rs.getString("jamMulai") + " - " + rs.getString("jamAkhir"));
+                    idJadwal[i] = rs.getString("idJadwal");
+                    i++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        catch(SQLException ex){
-            Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_paketComboBoxActionPerformed
 
     private void jadwalBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jadwalBoxActionPerformed
-        
+
     }//GEN-LAST:event_jadwalBoxActionPerformed
 
     public void setPaketKursus() {
@@ -381,12 +387,13 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
             rs = statement.executeQuery(query);
             int i = 0;
             while (rs.next()) {
+                this.idPaket[i] = rs.getString("idPaket");
+                this.biaya[i] = rs.getInt("biaya");
                 this.paketComboBox.addItem(rs.getString("NamaAlat"));
-                this.idPaket[i]=rs.getString("idPaket");
-                this.biaya[i]=rs.getInt("biaya");
                 i++;
             }
-            this.labelHarga.setText("Rp"+this.biaya[0]+",-");
+            isSet = true;
+            this.labelHarga.setText("Rp" + this.biaya[0] + ",-");
             System.out.println(Arrays.toString(biaya));
             System.out.println(Arrays.toString(idPaket));
         } catch (SQLException ex) {
