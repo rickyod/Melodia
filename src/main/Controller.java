@@ -15,6 +15,7 @@ import manager.LaporanPaketKursus;
 import manager.PaketKursusForm;
 import receptionist.DataKehadiran;
 import receptionist.DataPesertaForm;
+import receptionist.FormTransaksi;
 import receptionist.HomepageReceptionist;
 import receptionist.LaporanKehadiranMainForm;
 import receptionist.LaporanPelaksanaanKursusForm;
@@ -48,11 +49,15 @@ public class Controller {
     private LaporanPelaksanaanKursusForm laporanPelaksanaan;
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
+    private FormTransaksi formTransaksi;
     private Connection conn;
     private Statement statement;
     private String loggedIn;
+    private String idPegawai;
+    private String namaPegawai;
     private boolean connected;
 
+    
     public Controller() {
 
         try {
@@ -78,18 +83,11 @@ public class Controller {
             this.laporanKehadiran = new LaporanKehadiranMainForm(this);
             this.laporanPaketKursus = new LaporanPaketKursus(this);
             this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
+            this.formTransaksi = new FormTransaksi(this);
             this.login = new Login(this);
             this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
             this.login.setVisible(true);
         }
-        //contoh query
-//        Statement sta = conn.createStatement();
-//            String query = "select * from penduduk";
-//            ResultSet rs = sta.executeQuery(query);
-//        while (rs.next()) 
-//            {
-//                System.out.println(rs.getString("nama"));
-//            }
     }
 
     public void setLoggedIn(String loggedIn) {
@@ -98,6 +96,22 @@ public class Controller {
 
     public String getLoggedIn() {
         return loggedIn;
+    }
+
+    public void setNamaPegawai(String namaPegawai) {
+        this.namaPegawai = namaPegawai;
+    }
+
+    public String getNamaPegawai() {
+        return namaPegawai;
+    }
+
+    public void setIdPegawai(String idPegawai) {
+        this.idPegawai = idPegawai;
+    }
+
+    public String getIdPegawai() {
+        return idPegawai;
     }
 
     public Connection getConn() {
@@ -160,6 +174,10 @@ public class Controller {
         return laporanPaketKursus;
     }
 
+    public FormTransaksi getFormTransaksi() {
+        return formTransaksi;
+    }
+    
     public LaporanPelaksanaanKursusForm getLaporanPelaksanaan() {
         return laporanPelaksanaan;
     }

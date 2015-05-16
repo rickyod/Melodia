@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
             if (Arrays.equals(passArr, this.password)) {
                 idPegawai = rs.getString("idPegawai"); //mendapatkan idPegawai
                 query = String.format("select\n"
-                        + "	Jabatan.NamaJabatan\n"
+                        + "	*\n"
                         + "from\n"
                         + "	DataPegawai inner join Jabatan\n"
                         + "on	\n"
@@ -172,6 +172,9 @@ public class Login extends javax.swing.JFrame {
                 rs.next();
                 jabatan = rs.getString("NamaJabatan");
                 this.cont.setLoggedIn(jabatan);
+                this.cont.setIdPegawai(idPegawai);
+                String namaPegawai = rs.getString("namaPegawai");
+                this.cont.setNamaPegawai(namaPegawai);
                 if (jabatan.equals("Manager")) {
                     cont.getHomepageManager().setVisible(true);
                 } else {
