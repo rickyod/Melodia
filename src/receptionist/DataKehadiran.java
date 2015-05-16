@@ -246,6 +246,7 @@ public class DataKehadiran extends javax.swing.JFrame {
                         while (rs.next()) {
                             idSiswa[i] = rs.getString("idSiswa");
                             idPaket[i] = rs.getString("idPaket");
+                            i++;
                         }
                         for (int j = 0; j < size; j++) {
                             query = String.format("INSERT INTO DaftarHadir values('%s','%s','%s','false')", idSiswa[j], idPaket[j], tanggalHariIni);
