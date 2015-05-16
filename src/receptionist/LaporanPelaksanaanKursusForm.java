@@ -51,8 +51,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelPelaksanaanKursus = new javax.swing.JTable();
-        editButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,20 +100,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelPelaksanaanKursus);
 
-        editButton.setText("Edit");
-        editButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
-            }
-        });
-
-        deleteButton.setText("Delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,12 +124,7 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
                                 .addComponent(logoutButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(editButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteButton)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -161,12 +140,8 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editButton)
-                    .addComponent(deleteButton))
-                .addGap(6, 6, 6))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -185,10 +160,10 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
             query = "select * from PelaksanaanKursus";
             rs = sta.executeQuery(query);
             while(rs.next()){
-                input[count][0] = rs.getString("id Siswa");
-                input[count][1] = rs.getString("Tanggal Kursus");
-                input[count][2] = rs.getString("Jam Kursus");
-                input[count][3] = rs.getString("Sisa Pertemuan");
+                input[count][0] = rs.getString("idSiswa");
+                input[count][1] = rs.getString("Tanggal");
+                input[count][2] = rs.getString("Jam");
+                input[count][3] = rs.getString("SisaPertemuan");
                 count++;
             }
             tabel.updateData(input,size);
@@ -197,10 +172,6 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         }
     }
     
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editButtonActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         if(this.cont.getLoggedIn().equals("Manager")){
             this.cont.getHomepageManager().setVisible(true);
@@ -215,15 +186,9 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JButton editButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

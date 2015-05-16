@@ -26,7 +26,7 @@ public class TableModelDataKehadiran extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -39,7 +39,8 @@ public class TableModelDataKehadiran extends AbstractTableModel{
         switch (columnIndex) {
             case 0: return "ID Peserta";
             case 1: return "Tanggal Kursus";
-            case 2: return "Status Hadir";
+            case 2: return "ID Paket";
+            case 3: return "Status Hadir";
         }
         return null;
     }

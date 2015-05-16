@@ -52,7 +52,6 @@ public class DataKehadiran extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelDataKehadiran = new javax.swing.JTable();
         updateButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
         lihatLaporanButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,13 +116,6 @@ public class DataKehadiran extends javax.swing.JFrame {
             }
         });
 
-        deleteButton.setText("Delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-
         lihatLaporanButton.setText("Lihat Laporan");
         lihatLaporanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,14 +147,13 @@ public class DataKehadiran extends javax.swing.JFrame {
                                 .addComponent(logoutButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lihatLaporanButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(updateButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteButton)))
-                        .addContainerGap())))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lihatLaporanButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateButton)
+                        .addGap(22, 22, 22))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +172,6 @@ public class DataKehadiran extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateButton)
-                    .addComponent(deleteButton)
                     .addComponent(lihatLaporanButton))
                 .addGap(6, 6, 6))
         );
@@ -238,17 +228,12 @@ public class DataKehadiran extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_lihatLaporanButtonActionPerformed
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
     public void setTable() {
         
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

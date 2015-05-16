@@ -1,6 +1,12 @@
 package receptionist;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
+import model.TableModelDataKehadiran;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,14 +21,19 @@ import main.Controller;
 public class LaporanKehadiranMainForm extends javax.swing.JFrame {
 
     Controller cont;
+    Statement statement;
+    TableModelDataKehadiran table;
     
     /**
      * Creates new form LaporanKehadiran
      */
     public LaporanKehadiranMainForm(Controller cont) {
         this.cont = cont;
+        this.statement = cont.getStatement();
         initComponents();
         this.setLocationRelativeTo(null);
+        table = new TableModelDataKehadiran();
+        this.tabelDataKehadiran.setModel(table);
     }
 
     /**
@@ -45,12 +56,12 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
         lihatLaporanKehadiranButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelDataKehadiran = new javax.swing.JTable();
-        tanggalBox1 = new javax.swing.JComboBox();
-        bulanBox1 = new javax.swing.JComboBox();
-        tahunBox1 = new javax.swing.JComboBox();
-        tanggalBox2 = new javax.swing.JComboBox();
-        bulanBox2 = new javax.swing.JComboBox();
-        tahunBox2 = new javax.swing.JComboBox();
+        tanggalAwalBox = new javax.swing.JComboBox();
+        bulanAwalBox = new javax.swing.JComboBox();
+        tahunAwalBox = new javax.swing.JComboBox();
+        tanggalAkhirBox = new javax.swing.JComboBox();
+        bulanAkhirBox = new javax.swing.JComboBox();
+        tahunAkhirBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,17 +130,17 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelDataKehadiran);
 
-        tanggalBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tanggal -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        tanggalAwalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tanggal -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        bulanBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Bulan -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        bulanAwalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Bulan -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        tahunBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tahun -", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010" }));
+        tahunAwalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tahun -", "2013", "2014", "2015", "2016", "2017", "2018" }));
 
-        tanggalBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tanggal -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        tanggalAkhirBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tanggal -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        bulanBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Bulan -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        bulanAkhirBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Bulan -", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        tahunBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tahun -", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010" }));
+        tahunAkhirBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Tahun -", "2013", "2014", "2015", "2016", "2017", "2018" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,20 +154,20 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tanggalBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tanggalAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bulanBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bulanAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tahunBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tahunAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tanggalBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tanggalAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bulanBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bulanAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tahunBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(tahunAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(168, 168, 168)
                         .addComponent(lihatLaporanKehadiranButton))
@@ -173,16 +184,16 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tanggalBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bulanBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tahunBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tanggalAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bulanAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tahunAwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tanggalBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bulanBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tahunBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tanggalAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bulanAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tahunAkhirBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(lihatLaporanKehadiranButton)
@@ -229,7 +240,29 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lihatLaporanKehadiranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatLaporanKehadiranButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            int count = 0;
+            String tanggalAwal = tahunAwalBox.getSelectedItem()+"-"+bulanAwalBox.getSelectedItem()+"-"+tanggalAwalBox.getSelectedItem();
+            String tanggalAkhir = tahunAkhirBox.getSelectedItem()+"-"+bulanAkhirBox.getSelectedItem()+"-"+tanggalAkhirBox.getSelectedItem();
+            String query = String.format("select COUNT(idSiswa) as jumlahSiswa from DaftarHadir where tanggal between '%s' and '%s'",tanggalAwal,tanggalAkhir);
+            ResultSet rs = statement.executeQuery(query);
+            rs.next();
+            int size = rs.getInt("jumlahSiswa");
+            String[][] input = new String[size][4];
+            query = String.format("select * from DaftarHadir where tanggal between '%s' and '%s'",tanggalAwal,tanggalAkhir);
+            rs = statement.executeQuery(query);
+            while(rs.next()){
+                input[count][0] = rs.getString("idSiswa");
+                input[count][1] = rs.getString("idPaket");
+                input[count][2] = rs.getString("tanggal");
+                input[count][3] = rs.getBoolean("statusKehadiran")+"";
+                count++;
+            }
+            table.updateData(input,size);
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(LaporanKehadiranMainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lihatLaporanKehadiranButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -245,8 +278,8 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JComboBox bulanBox1;
-    private javax.swing.JComboBox bulanBox2;
+    private javax.swing.JComboBox bulanAkhirBox;
+    private javax.swing.JComboBox bulanAwalBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -257,9 +290,9 @@ public class LaporanKehadiranMainForm extends javax.swing.JFrame {
     private javax.swing.JButton lihatLaporanKehadiranButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTable tabelDataKehadiran;
-    private javax.swing.JComboBox tahunBox1;
-    private javax.swing.JComboBox tahunBox2;
-    private javax.swing.JComboBox tanggalBox1;
-    private javax.swing.JComboBox tanggalBox2;
+    private javax.swing.JComboBox tahunAkhirBox;
+    private javax.swing.JComboBox tahunAwalBox;
+    private javax.swing.JComboBox tanggalAkhirBox;
+    private javax.swing.JComboBox tanggalAwalBox;
     // End of variables declaration//GEN-END:variables
 }
