@@ -41,6 +41,7 @@ public class EditDataPesertaForm extends javax.swing.JFrame {
         this.cont = cont;
         this.statement = this.cont.getStatement();
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
