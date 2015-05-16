@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import main.Controller;
 import manager.LaporanDataPegawaiForm;
 import model.TableModelDataPeserta;
@@ -22,6 +23,7 @@ import model.TableModelDataPeserta;
 public class DataPesertaForm extends javax.swing.JFrame {
 
     TableModelDataPeserta tabel;
+    Statement statement;
     Controller cont;
             
     /**
@@ -29,6 +31,7 @@ public class DataPesertaForm extends javax.swing.JFrame {
      */
     public DataPesertaForm(Controller cont) {
         this.cont = cont;
+        statement = this.cont.getStatement();
         initComponents();
         this.setLocationRelativeTo(null);
         tabel = new TableModelDataPeserta();
@@ -197,7 +200,14 @@ public class DataPesertaForm extends javax.swing.JFrame {
     }
     
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+        int index = tabelDataPeserta.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            this.cont.getEditDataPesertaForm().setData(tabelDataPeserta.getValueAt(index, 0) + "");
+            this.cont.getEditDataPesertaForm().setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -211,7 +221,31 @@ public class DataPesertaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        int index = tabelDataPeserta.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this information?", "Choose", JOptionPane.YES_NO_OPTION);
+            if (confirm == 0) {
+                try {
+                    String idSiswa = tabelDataPeserta.getValueAt(index, 0) + "";
+                    String query = String.format("delete from Transaksi where idSiswa = '%s'", idSiswa);
+                    statement.execute(query);
+                    query = String.format("delete from DaftarHadir where idSiswa = '%s'", idSiswa);
+                    statement.execute(query);
+                    query = String.format("delete from Siswa where idSiswa = '%s'", idSiswa);
+                    boolean exe = statement.execute(query);
+                    if (!exe) {
+                        JOptionPane.showMessageDialog(null, "Successful.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Delete unsuccessful.");
+                    }
+                    this.setTabel();
+                } catch (SQLException ex) {
+                    Logger.getLogger(LaporanDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
 

@@ -3,10 +3,7 @@ package receptionist;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
@@ -66,11 +63,9 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
         nomorHPField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         idSiswaField = new javax.swing.JTextField();
-        alatMusikComboBox = new javax.swing.JComboBox();
         tanggalBox = new javax.swing.JComboBox();
         bulanBox = new javax.swing.JComboBox();
         tahunBox = new javax.swing.JComboBox();
@@ -117,13 +112,9 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
 
         jLabel8.setText("ID Siswa : ");
 
-        jLabel10.setText("Jenis Alat Musik : ");
-
         jLabel9.setText("ID Receptionist : ");
 
         jLabel11.setText("Paket : ");
-
-        alatMusikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Pilih Alat Musik -", "Gitar", "Piano", "Drum", "Bass", "Saxophone", "Gamelan", " ", " " }));
 
         tanggalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tanggal", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
@@ -167,23 +158,19 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel5))
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(namaLengkapField)
                     .addComponent(alamatField)
                     .addComponent(nomorHPField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alatMusikComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tanggalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(bulanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tahunBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 154, Short.MAX_VALUE))))
+                        .addComponent(tanggalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bulanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tahunBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 152, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -194,20 +181,19 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                     .addComponent(idSiswaField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idPegawaiLabel)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(paketComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelHarga))
-                            .addComponent(idPegawaiLabel))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(daftarButton)
+                                    .addComponent(labelHarga))))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(daftarButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(53, 53, 53)
@@ -234,11 +220,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(nomorHPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(alatMusikComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -258,7 +240,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jadwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addGap(68, 68, 68)
+                .addGap(18, 18, 18)
                 .addComponent(daftarButton)
                 .addContainerGap())
         );
@@ -288,7 +270,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 7, Short.MAX_VALUE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -329,15 +311,15 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
             String alamat = this.alamatField.getText();
             String nomorHp = this.nomorHPField.getText();
             String idSiswa = this.idSiswaField.getText();
-            String idPaket = this.idPaket[this.paketComboBox.getSelectedIndex()];
-            String idJadwal = this.idJadwal[this.jadwalBox.getSelectedIndex()];
+            String idPaketPilihan = this.idPaket[this.paketComboBox.getSelectedIndex()];
+            String idJadwalPilihan = this.idJadwal[this.jadwalBox.getSelectedIndex()];
             int totalBiaya = biaya[this.paketComboBox.getSelectedIndex()];
             String tglDaftar = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','5')", idSiswa, namaLengkap, tglLahir, alamat, nomorHp, idPaket, idJadwal, tglDaftar);
+            String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','5')", idSiswa, namaLengkap, tglLahir, alamat, nomorHp, idPaketPilihan, idJadwalPilihan, tglDaftar);
             statement.execute(query);
 
             String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-            query = String.format("INSERT INTO Transaksi values ('%s','%s','%s','%s','%s','%s','%s')", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaket, totalBiaya, tglDaftar, timeStamp);
+            query = String.format("INSERT INTO Transaksi values ('%s','%s','%s','%s','%s','%s','%s')", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaketPilihan, totalBiaya, tglDaftar, timeStamp);
             statement.execute(query);
             this.cont.getFormTransaksi().setVisible(true);
             this.setVisible(false);
@@ -404,14 +386,12 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamatField;
-    private javax.swing.JComboBox alatMusikComboBox;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox bulanBox;
     private javax.swing.JButton daftarButton;
     private javax.swing.JLabel idPegawaiLabel;
     private javax.swing.JTextField idSiswaField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

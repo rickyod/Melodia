@@ -15,6 +15,7 @@ import manager.LaporanPaketKursus;
 import manager.PaketKursusForm;
 import receptionist.DataKehadiran;
 import receptionist.DataPesertaForm;
+import receptionist.EditDataPesertaForm;
 import receptionist.FormTransaksi;
 import receptionist.HomepageReceptionist;
 import receptionist.LaporanKehadiranMainForm;
@@ -39,6 +40,7 @@ public class Controller {
     private InsertDataPegawaiForm insertDataPegawaiForm;
     private EditDataPegawaiForm editDataPegawaiForm;
     private EditPaketKursusForm editPaketKursusForm;
+    private EditDataPesertaForm editDataPesertaForm;
     private UpdateKehadiranForm updateKehadiran;
     private HomepageManager homepageManager;
     private HomepageReceptionist homepageRec;
@@ -75,6 +77,7 @@ public class Controller {
             this.insertDataPegawaiForm = new InsertDataPegawaiForm(this);
             this.editDataPegawaiForm = new EditDataPegawaiForm(this);
             this.editPaketKursusForm = new EditPaketKursusForm(this);
+            this.editDataPesertaForm = new EditDataPesertaForm(this);
             this.updateKehadiran = new UpdateKehadiranForm(this);
             this.homepageManager = new HomepageManager(this);
             this.homepageRec = new HomepageReceptionist(this);
@@ -96,6 +99,10 @@ public class Controller {
 
     public String getLoggedIn() {
         return loggedIn;
+    }
+
+    public EditDataPesertaForm getEditDataPesertaForm() {
+        return editDataPesertaForm;
     }
 
     public void setNamaPegawai(String namaPegawai) {
