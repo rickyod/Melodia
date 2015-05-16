@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package manager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,7 +20,6 @@ import main.Controller;
  */
 public class EditDataPegawaiForm extends javax.swing.JFrame {
 
-    
     Statement statement;
     Controller cont;
     String idPegawai;
@@ -31,6 +30,7 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
     String tanggal;
     String bulan;
     String tahun;
+    boolean isChanges;
     
     /**
      * Creates new form EditDataPegawaiForm
@@ -71,14 +71,16 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        oldPassField = new javax.swing.JPasswordField();
+        newPassField = new javax.swing.JPasswordField();
+        retypePassField = new javax.swing.JPasswordField();
         saveButton2 = new javax.swing.JButton();
         cancelButton2 = new javax.swing.JButton();
         kotaBox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        oldPassLabel = new javax.swing.JLabel();
+        retypeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,6 +137,11 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
         jLabel14.setText("Retype new");
 
         saveButton2.setText("Save Changes");
+        saveButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButton2ActionPerformed(evt);
+            }
+        });
 
         cancelButton2.setText("Cancel");
         cancelButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +154,10 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Melodia Music Lesson");
+
+        oldPassLabel.setText("jLabel15");
+
+        retypeLabel.setText("jLabel16");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,8 +197,7 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
                                     .addComponent(idPegawaiLabel)
                                     .addComponent(kotaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(alamatField)
-                                    .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(namaField, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
@@ -196,19 +206,25 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
                                 .addComponent(bulanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tahunBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel12)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13))
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel13))
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(oldPassField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newPassField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(retypePassField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oldPassLabel)
+                            .addComponent(retypeLabel))))
                 .addGap(0, 133, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -256,15 +272,17 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(oldPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oldPassLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(retypePassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(retypeLabel))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton2)
@@ -288,13 +306,12 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButton2ActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        boolean isChanges = false;
         String newNama = namaField.getText().trim();
         String query;
         ResultSet rs;
-        if(!newNama.equals(namaPegawai)){
+        if (!newNama.equals(namaPegawai)) {
             isChanges = true;
-            query = String.format("UPDATE DataPegawai SET namaPegawai = '%s' where idPegawai ='%s' " , newNama , idPegawai);
+            query = String.format("UPDATE DataPegawai SET namaPegawai = '%s' where idPegawai ='%s' ", newNama, idPegawai);
             try {
                 statement.execute(query);
             } catch (SQLException ex) {
@@ -302,41 +319,41 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
             }
         }
         String newAlamat = alamatField.getText().trim();
-        if(!newAlamat.equals(alamat)){
+        if (!newAlamat.equals(alamat)) {
             isChanges = true;
-            query = String.format("UPDATE DataPegawai SET alamat = '%s' where idPegawai ='%s' " , newAlamat , idPegawai);
+            query = String.format("UPDATE DataPegawai SET alamat = '%s' where idPegawai ='%s' ", newAlamat, idPegawai);
             try {
                 statement.execute(query);
             } catch (SQLException ex) {
                 Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        String newKota = kotaBox.getSelectedItem()+"";
-        if(!newKota.equals(kota)){
+        String newKota = kotaBox.getSelectedItem() + "";
+        if (!newKota.equals(kota)) {
             isChanges = true;
             String kodeKota;
             try {
-                query = String.format("select kodeKota from Kota where nama ='%s'",newKota);
+                query = String.format("select kodeKota from Kota where nama ='%s'", newKota);
                 rs = statement.executeQuery(query);
                 rs.next();
                 kodeKota = rs.getString("kodeKota");
-                query = String.format("UPDATE DataPegawai SET kota= '%s' where idPegawai ='%s' " , kodeKota , idPegawai);
+                query = String.format("UPDATE DataPegawai SET kota= '%s' where idPegawai ='%s' ", kodeKota, idPegawai);
                 statement.execute(query);
             } catch (SQLException ex) {
                 Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        String newTanggalLahir = tahunBox.getSelectedItem()+"-"+bulanBox.getSelectedItem()+"-"+tanggalBox.getSelectedItem();
+        String newTanggalLahir = tahunBox.getSelectedItem() + "-" + bulanBox.getSelectedItem() + "-" + tanggalBox.getSelectedItem();
         if (!newTanggalLahir.equals(tanggalLahir)) {
             isChanges = true;
-            query = String.format("UPDATE DataPegawai SET tglLahir = '%s' where idPegawai ='%s' " , newTanggalLahir , idPegawai);
+            query = String.format("UPDATE DataPegawai SET tglLahir = '%s' where idPegawai ='%s' ", newTanggalLahir, idPegawai);
             try {
                 statement.execute(query);
             } catch (SQLException ex) {
                 Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if(isChanges){
+        if (isChanges) {
             JOptionPane.showMessageDialog(null, "Changes saved.");
         }
         this.setVisible(false);
@@ -344,11 +361,60 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
         this.cont.getLaporanDataPegawai().setVisible(true);
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    public void setData(String id){
-        String query = String.format("select * from DataPegawai where idPegawai = '%s'",id);
+    private void saveButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton2ActionPerformed
+        try {
+            String oldPassword = "";
+            String currentPassword ="";
+            String newPassword ="";
+            char[] oldPass = oldPassField.getPassword();
+            char[] newPass = newPassField.getPassword();
+            char[] retypePass = retypePassField.getPassword();
+            for (int i = 0; i < oldPass.length; i++) {
+                oldPassword += oldPass[i] + "";
+            }
+            for (int i = 0; i < newPass.length; i++) {
+                newPassword+=newPass[i];
+            }
+            String query = String.format("select password from account join datapegawai on datapegawai.idpegawai = account.idpegawai where DataPegawai.idPegawai = '%s'", idPegawai);
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                currentPassword = rs.getString("password");
+            }
+            if(oldPassword.equals(currentPassword)){
+                oldPassLabel.setText("");
+                if(Arrays.equals(newPass, retypePass)){
+                    isChanges = true;
+                    query = String.format("update Account set password ='%s' where idPegawai = '%s'",newPassword,idPegawai);
+                    statement.execute(query);
+                    saveButton.doClick();
+                }
+                else
+                {
+                    retypeLabel.setText("Password tidak sama.");
+                }
+            }
+            else{
+                oldPassLabel.setText("Password salah.");
+                if(Arrays.equals(newPass, retypePass)){
+                    retypeLabel.setText("");
+                }
+                else
+                {
+                    retypeLabel.setText("Password tidak sama.");
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_saveButton2ActionPerformed
+
+    public void setData(String id) {
+        String query = String.format("select * from DataPegawai where idPegawai = '%s'", id);
         try {
             ResultSet rs = statement.executeQuery(query);
             rs.next();
+            isChanges = false;
             idPegawai = id;
             this.idPegawaiLabel.setText(idPegawai);
             namaPegawai = rs.getString("namaPegawai");
@@ -358,16 +424,21 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
             tanggalLahir = rs.getString("tglLahir");
             String[] split = tanggalLahir.split("-");
             tahun = split[0];
-            bulan = Integer.parseInt(split[1])+"";
-            tanggal = Integer.parseInt(split[2])+"";
+            bulan = Integer.parseInt(split[1]) + "";
+            tanggal = Integer.parseInt(split[2]) + "";
             tahunBox.setSelectedItem(tahun);
             bulanBox.setSelectedItem(bulan);
             tanggalBox.setSelectedItem(tanggal);
             String kodeKota = rs.getString("kota");
-            ResultSet rsKota = statement.executeQuery(String.format("select nama from Kota where kodeKota = '%s'",kodeKota));
+            ResultSet rsKota = statement.executeQuery(String.format("select nama from Kota where kodeKota = '%s'", kodeKota));
             rsKota.next();
             kota = rsKota.getString("nama");
             kotaBox.setSelectedItem(kota.trim());
+            oldPassField.setText("");
+            newPassField.setText("");
+            retypePassField.setText("");
+            oldPassLabel.setText("");
+            retypeLabel.setText("");
         } catch (SQLException ex) {
             Logger.getLogger(EditDataPegawaiForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -393,12 +464,14 @@ public class EditDataPegawaiForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox kotaBox;
     private javax.swing.JTextField namaField;
+    private javax.swing.JPasswordField newPassField;
+    private javax.swing.JPasswordField oldPassField;
+    private javax.swing.JLabel oldPassLabel;
+    private javax.swing.JLabel retypeLabel;
+    private javax.swing.JPasswordField retypePassField;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton saveButton2;
     private javax.swing.JComboBox tahunBox;
