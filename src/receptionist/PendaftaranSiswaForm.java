@@ -321,6 +321,14 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
             String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
             query = String.format("INSERT INTO Transaksi values ('%s','%s','%s','%s','%s','%s','%s')", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaketPilihan, totalBiaya, tglDaftar, timeStamp);
             statement.execute(query);
+            query = String.format("select idTransaksi from Transaksi");
+            ResultSet rs = statement.executeQuery(query);
+            String idTransaksi = "";
+            while(rs.next()){
+                idTransaksi = rs.getString("idTransaksi");
+            }
+            String namaPegawai = this.cont.getNamaPegawai();
+            this.cont.getFormTransaksi().setTransaksi(idTransaksi, tglDaftar, timeStamp, idSiswa,namaLengkap,totalBiaya,idPaketPilihan,namaPegawai);
             this.cont.getFormTransaksi().setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {

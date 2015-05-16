@@ -284,8 +284,9 @@ public class FormTransaksi extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    void setTransaksi(String idTransaksi, String tglDaftar, String timeStamp, String idSiswa, String namaLengkap, int totalBiaya, String idPaket, String namaPegawai) {
+    public void setTransaksi(String idTransaksi, String tglDaftar, String timeStamp, String idSiswa, String namaLengkap, int totalBiaya, String idPaket, String namaPegawai) {
         try{
+            
             this.idTransaksiLabel.setText(idTransaksi);
             this.tglTransaksiLabel.setText(tglDaftar);
             this.jamTransaksiLabel.setText(timeStamp);

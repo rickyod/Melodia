@@ -43,6 +43,7 @@ public class HomepageReceptionist extends javax.swing.JFrame {
         pendaftaranButton = new javax.swing.JButton();
         pelaksanaanKursusButton = new javax.swing.JButton();
         dataKehadiranButton = new javax.swing.JButton();
+        daftarUlangButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +68,7 @@ public class HomepageReceptionist extends javax.swing.JFrame {
             }
         });
 
-        pendaftaranButton.setText("Pendaftaran");
+        pendaftaranButton.setText("Daftar Baru");
         pendaftaranButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pendaftaranButtonActionPerformed(evt);
@@ -88,6 +89,13 @@ public class HomepageReceptionist extends javax.swing.JFrame {
             }
         });
 
+        daftarUlangButton.setText("Daftar Ulang");
+        daftarUlangButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarUlangButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,9 +113,10 @@ public class HomepageReceptionist extends javax.swing.JFrame {
                                     .addComponent(dataPesertaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dataKehadiranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pelaksanaanKursusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pendaftaranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(pelaksanaanKursusButton, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                    .addComponent(pendaftaranButton, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                    .addComponent(daftarUlangButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 2, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -130,9 +139,12 @@ public class HomepageReceptionist extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dataPesertaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pendaftaranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pendaftaranButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(daftarUlangButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pelaksanaanKursusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,8 +184,15 @@ public class HomepageReceptionist extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_pelaksanaanKursusButtonActionPerformed
 
+    private void daftarUlangButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarUlangButtonActionPerformed
+        this.cont.getDaftarUlang().setVisible(true);
+        this.cont.getDaftarUlang().clear();
+        this.setVisible(false);
+    }//GEN-LAST:event_daftarUlangButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton daftarUlangButton;
     private javax.swing.JButton dataKehadiranButton;
     private javax.swing.JButton dataPesertaButton;
     private javax.swing.JLabel jLabel1;

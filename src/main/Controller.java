@@ -13,6 +13,7 @@ import manager.InsertPaketKursusForm;
 import manager.LaporanDataPegawaiForm;
 import manager.LaporanPaketKursus;
 import manager.PaketKursusForm;
+import receptionist.DaftarUlangForm;
 import receptionist.DataKehadiran;
 import receptionist.DataPesertaForm;
 import receptionist.EditDataPesertaForm;
@@ -51,6 +52,7 @@ public class Controller {
     private LaporanPelaksanaanKursusForm laporanPelaksanaan;
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
+    private DaftarUlangForm daftarUlang;
     private FormTransaksi formTransaksi;
     private Connection conn;
     private Statement statement;
@@ -87,6 +89,7 @@ public class Controller {
             this.laporanPaketKursus = new LaporanPaketKursus(this);
             this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
             this.formTransaksi = new FormTransaksi(this);
+            this.daftarUlang = new DaftarUlangForm(this);
             this.login = new Login(this);
             this.pendaftaranSiswa = new PendaftaranSiswaForm(this);
             this.login.setVisible(true);
@@ -187,6 +190,10 @@ public class Controller {
     
     public LaporanPelaksanaanKursusForm getLaporanPelaksanaan() {
         return laporanPelaksanaan;
+    }
+
+    public DaftarUlangForm getDaftarUlang() {
+        return daftarUlang;
     }
 
     public Login getLogin() {
