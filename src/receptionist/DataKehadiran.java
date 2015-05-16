@@ -199,10 +199,10 @@ public class DataKehadiran extends javax.swing.JFrame {
                 query = String.format("select * from DaftarHadir where tanggal ='%s'", tanggalHariIni);
                 rs = statement.executeQuery(query);
                 while (rs.next()) {
-                    input[count][0] = rs.getString("idPeserta");
-                    input[count][1] = rs.getString("tanggalKursus");
+                    input[count][0] = rs.getString("idSiswa");
+                    input[count][1] = rs.getString("tanggal");
                     input[count][2] = rs.getString("idPaket");
-                    input[count][3] = rs.getBoolean("statusHadir") + "";
+                    input[count][3] = rs.getBoolean("statusKehadiran") + "";
                     count++;
                 }
                 tabel.updateData(input, size);
@@ -213,16 +213,20 @@ public class DataKehadiran extends javax.swing.JFrame {
     }
 
     public void generateAttendances() {
-        if (!tanggalHariIni.equals("")) {
+        if (tanggalHariIni.equals("")) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             tanggalHariIni = sdf.format(new Date());
             String query;
             ResultSet rs;
             try {
-                query = String.format("select count(tanggal) as jumlah from DaftarHadir where tanggal = '%s'", tanggalHariIni);
+                query = String.format("select tanggal from DaftarHadir where tanggal = '%s'", tanggalHariIni);
                 rs = statement.executeQuery(query);
-                int exist = rs.getInt("jumlah");
-                if (exist > 0) {
+                int exist = 0;
+                while(rs.next()){
+                    exist++;
+                }
+                System.out.println(exist);
+                if (exist == 0) {
                     Date date = null;
                     date = sdf.parse(tanggalHariIni);
                     DateFormat df = new SimpleDateFormat("EEEE");
@@ -285,9 +289,6 @@ public class DataKehadiran extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_lihatLaporanButtonActionPerformed
 
-    public void setTable() {
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

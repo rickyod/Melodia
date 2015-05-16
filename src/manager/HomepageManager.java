@@ -172,7 +172,7 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void laporanKehadiranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanKehadiranButtonActionPerformed
         this.cont.getDataKehadiran().setVisible(true);
-        this.cont.getDataKehadiran().setTable();
+        this.cont.getDataKehadiran().setTabel();
         this.setVisible(false);
     }//GEN-LAST:event_laporanKehadiranButtonActionPerformed
 

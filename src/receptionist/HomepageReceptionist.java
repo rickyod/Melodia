@@ -174,7 +174,7 @@ public class HomepageReceptionist extends javax.swing.JFrame {
 
     private void dataKehadiranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataKehadiranButtonActionPerformed
         this.cont.getDataKehadiran().setVisible(true);
-        this.cont.getDataKehadiran().setTable();
+        this.cont.getDataKehadiran().setTabel();
         this.setVisible(false);
     }//GEN-LAST:event_dataKehadiranButtonActionPerformed
 
