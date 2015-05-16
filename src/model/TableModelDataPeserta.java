@@ -26,7 +26,7 @@ public class TableModelDataPeserta extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 9;
     }
 
     @Override
@@ -37,11 +37,15 @@ public class TableModelDataPeserta extends AbstractTableModel{
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
-            case 0: return "ID Peserta";
+            case 0: return "Id Siswa";
             case 1: return "Nama Lengkap";
             case 2: return "Tanggal Lahir";
             case 3: return "Alamat";
             case 4: return "Nomor Telepon";
+            case 5: return "Id Paket";
+            case 6: return "id Jadwal";
+            case 7: return "Tanggal Daftar";
+            case 8: return "Sisa Pertemuan";
         }
         return null;
     }
@@ -56,10 +60,5 @@ public class TableModelDataPeserta extends AbstractTableModel{
         this.data=input;
         this.fireTableRowsInserted(count, count);
         this.count = count;
-    }
-    
-    public void deleteData(int index){
-        this.fireTableRowsDeleted(index, index);
-        this.count--;
     }
 }

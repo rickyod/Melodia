@@ -58,39 +58,20 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="idPaketLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="namaSiswaLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="totalBiayaLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="idSiswaLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="jamTransaksi" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="tglTransaksiLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="namaPaketLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                              <Component id="idTransaksiLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="namaPegawaiLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="idPaketLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="namaSiswaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalBiayaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idSiswaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jamTransaksiLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tglTransaksiLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="namaPaketLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idTransaksiLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -107,7 +88,7 @@
                       <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -176,7 +157,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="tglTransaksiLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jamTransaksi" min="-2" max="-2" attributes="0"/>
+                      <Component id="jamTransaksiLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="idSiswaLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -194,7 +175,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="49" max="32767" attributes="0"/>
           </Group>
@@ -287,7 +268,7 @@
         <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jamTransaksi">
+    <Component class="javax.swing.JLabel" name="jamTransaksiLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel18"/>
       </Properties>
@@ -352,10 +333,13 @@
         <Property name="text" type="java.lang.String" value="Print"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="backButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel19">
       <Properties>

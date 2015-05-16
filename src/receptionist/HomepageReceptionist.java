@@ -150,6 +150,7 @@ public class HomepageReceptionist extends javax.swing.JFrame {
 
     private void dataPesertaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPesertaButtonActionPerformed
         this.cont.getDataPeserta().setVisible(true);
+        this.cont.getDataPeserta().setTabel();
         this.setVisible(false);
     }//GEN-LAST:event_dataPesertaButtonActionPerformed
 

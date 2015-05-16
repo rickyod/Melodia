@@ -169,19 +169,25 @@ public class DataPesertaForm extends javax.swing.JFrame {
         try {
             int count = 0;
             Statement sta = this.cont.getStatement();
-            String query = "select COUNT(idPeserta) as jumlahPeserta from DataPeserta";
+            String query = "select * from Siswa";
             ResultSet rs = sta.executeQuery(query);
-            rs.next();
-            int size = rs.getInt("jumlahPeserta");
-            String[][] input = new String[size][5];
-            query = "select * from DataPeserta";
+            int size = 0;
+            while(rs.next()){
+                size++;
+            }
+            String[][] input = new String[size][9];
+            query = "select * from Siswa";
             rs = sta.executeQuery(query);
             while(rs.next()){
-                input[count][0] = rs.getString("id Peserta");
-                input[count][1] = rs.getString("Nama Lengkap");
-                input[count][2] = rs.getString("Tanggal Lahir");
+                input[count][0] = rs.getString("idSiswa");
+                input[count][1] = rs.getString("namaLengkap");
+                input[count][2] = rs.getString("TglLahir");
                 input[count][3] = rs.getString("Alamat");
-                input[count][4] = rs.getString("Nomor Telepon");
+                input[count][4] = rs.getString("NomorHP");
+                input[count][5] = rs.getString("idPaket");
+                input[count][6] = rs.getString("idjadwal");
+                input[count][7] = rs.getString("tglDaftar");
+                input[count][8] = rs.getString("sisaPertemuan");
                 count++;
             }
             tabel.updateData(input,size);

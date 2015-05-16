@@ -1,5 +1,10 @@
 package receptionist;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.Controller;
 
 /*
@@ -14,6 +19,7 @@ import main.Controller;
  */
 public class FormTransaksi extends javax.swing.JFrame {
 
+    Statement statement;
     Controller cont;
     
     /**
@@ -21,6 +27,7 @@ public class FormTransaksi extends javax.swing.JFrame {
      */
     public FormTransaksi(Controller cont) {
         this.cont = cont;
+        this.statement = cont.getStatement();
         initComponents();
     }
 
@@ -49,7 +56,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         tglTransaksiLabel = new javax.swing.JLabel();
-        jamTransaksi = new javax.swing.JLabel();
+        jamTransaksiLabel = new javax.swing.JLabel();
         idSiswaLabel = new javax.swing.JLabel();
         namaSiswaLabel = new javax.swing.JLabel();
         totalBiayaLabel = new javax.swing.JLabel();
@@ -62,7 +69,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,7 +108,7 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         tglTransaksiLabel.setText("jLabel8");
 
-        jamTransaksi.setText("jLabel18");
+        jamTransaksiLabel.setText("jLabel18");
 
         idSiswaLabel.setText("jLabel8");
 
@@ -126,7 +133,12 @@ public class FormTransaksi extends javax.swing.JFrame {
 
         jButton1.setText("Print");
 
-        jButton2.setText("Back");
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("BUKTI TRANSAKSI");
@@ -166,31 +178,18 @@ public class FormTransaksi extends javax.swing.JFrame {
                             .addComponent(jLabel17))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaPegawaiLabel)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
-                                .addComponent(idPaketLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(namaSiswaLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(totalBiayaLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(idSiswaLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jamTransaksi))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(tglTransaksiLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(namaPaketLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(idTransaksiLabel))
-                            .addComponent(namaPegawaiLabel)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idPaketLabel)
+                                    .addComponent(namaSiswaLabel)
+                                    .addComponent(totalBiayaLabel)
+                                    .addComponent(idSiswaLabel)
+                                    .addComponent(jamTransaksiLabel)
+                                    .addComponent(tglTransaksiLabel)
+                                    .addComponent(namaPaketLabel)
+                                    .addComponent(idTransaksiLabel)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +201,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addGap(111, 111, 111)
                         .addComponent(jButton1)
                         .addGap(89, 89, 89)
-                        .addComponent(jButton2)))
+                        .addComponent(backButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -257,7 +256,7 @@ public class FormTransaksi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tglTransaksiLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jamTransaksi)
+                        .addComponent(jamTransaksiLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(idSiswaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,21 +272,43 @@ public class FormTransaksi extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(backButton))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.cont.getHomepageRec().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
 
-
+    void setTransaksi(String idTransaksi, String tglDaftar, String timeStamp, String idSiswa, String namaLengkap, int totalBiaya, String idPaket, String namaPegawai) {
+        try{
+            this.idTransaksiLabel.setText(idTransaksi);
+            this.tglTransaksiLabel.setText(tglDaftar);
+            this.jamTransaksiLabel.setText(timeStamp);
+            this.idSiswaLabel.setText(idSiswa);
+            this.namaSiswaLabel.setText(namaLengkap);
+            this.totalBiayaLabel.setText(totalBiaya+"");
+            this.idPaketLabel.setText(idPaket);
+            String query = String.format("select namaPaket from PaketKursus where idPaket = '%s'",idPaket);
+            ResultSet rs = statement.executeQuery(query);
+            String namaPaket = rs.getString("namaPaket");
+            this.namaPaketLabel.setText(namaPaket);
+            this.namaPegawaiLabel.setText(namaPegawai);
+        } catch (SQLException ex) {
+            Logger.getLogger(FormTransaksi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel idPaketLabel;
     private javax.swing.JLabel idSiswaLabel;
     private javax.swing.JLabel idTransaksiLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -307,7 +328,7 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JLabel jamTransaksi;
+    private javax.swing.JLabel jamTransaksiLabel;
     private javax.swing.JLabel jammm;
     private javax.swing.JLabel labelll;
     private javax.swing.JLabel namaPaketLabel;
@@ -316,4 +337,5 @@ public class FormTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel tglTransaksiLabel;
     private javax.swing.JLabel totalBiayaLabel;
     // End of variables declaration//GEN-END:variables
+
 }
