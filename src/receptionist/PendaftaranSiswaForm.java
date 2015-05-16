@@ -293,8 +293,22 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void clear(){
+        namaLengkapField.setText("");
+        tanggalBox.setSelectedIndex(0);
+        bulanBox.setSelectedIndex(0);
+        tahunBox.setSelectedIndex(0);
+        alamatField.setText("");
+        nomorHPField.setText("");
+        idSiswaField.setText(" ");
+        paketComboBox.setSelectedIndex(0);
+        jadwalBox.removeAllItems();
+        labelHarga.setText(" ");
+    }
+    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageRec().setVisible(true);
+        this.clear();
         this.isSet = false;
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed

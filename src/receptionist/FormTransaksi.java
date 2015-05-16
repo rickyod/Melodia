@@ -29,6 +29,7 @@ public class FormTransaksi extends javax.swing.JFrame {
         this.cont = cont;
         this.statement = cont.getStatement();
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -286,7 +287,6 @@ public class FormTransaksi extends javax.swing.JFrame {
 
     public void setTransaksi(String idTransaksi, String tglDaftar, String timeStamp, String idSiswa, String namaLengkap, int totalBiaya, String idPaket, String namaPegawai) {
         try{
-            
             this.idTransaksiLabel.setText(idTransaksi);
             this.tglTransaksiLabel.setText(tglDaftar);
             this.jamTransaksiLabel.setText(timeStamp);
@@ -296,6 +296,7 @@ public class FormTransaksi extends javax.swing.JFrame {
             this.idPaketLabel.setText(idPaket);
             String query = String.format("select namaPaket from PaketKursus where idPaket = '%s'",idPaket);
             ResultSet rs = statement.executeQuery(query);
+            rs.next();
             String namaPaket = rs.getString("namaPaket");
             this.namaPaketLabel.setText(namaPaket);
             this.namaPegawaiLabel.setText(namaPegawai);

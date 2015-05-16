@@ -217,6 +217,7 @@ public class DaftarUlangForm extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageRec().setVisible(true);
+        this.clear();
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -234,6 +235,7 @@ public class DaftarUlangForm extends javax.swing.JFrame {
         idPegawaiLabel.setText(" ");
         paketLabel.setText(" ");
         labelHarga.setText(" ");
+        jadwalBox.removeAllItems();
     }
     
     private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
@@ -285,7 +287,6 @@ public class DaftarUlangForm extends javax.swing.JFrame {
 
     private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
         try{
-            jadwalBox.removeAllItems();
             idSiswa = idSiswaField.getText();
             String query = String.format("select idPaket from Siswa where idSiswa = '%s'",idSiswa);
             ResultSet rs = statement.executeQuery(query);
