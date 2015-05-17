@@ -160,8 +160,8 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void dataPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataPegawaiButtonActionPerformed
         this.cont.getLaporanDataPegawai().setTabel();
-        this.setVisible(false);
         this.cont.getLaporanDataPegawai().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_dataPegawaiButtonActionPerformed
 
     private void laporanPelaksanaanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanPelaksanaanButtonActionPerformed
@@ -172,6 +172,7 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void laporanKehadiranButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanKehadiranButtonActionPerformed
         this.cont.getDataKehadiran().setVisible(true);
+        this.cont.getDataKehadiran().setTabel();
         this.setVisible(false);
     }//GEN-LAST:event_laporanKehadiranButtonActionPerformed
 

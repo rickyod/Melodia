@@ -208,9 +208,10 @@ public class UpdateKehadiranForm extends javax.swing.JFrame {
                 String jam = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
                 query = String.format("INSERT INTO PelaksanaanKursus values('%s','%s','%s','%d')", idPeserta, tanggal, jam, sisaPertemuan);
                 statement.execute(query);
-                int confirm = JOptionPane.showConfirmDialog(null, "Berhasil", "Choose", JOptionPane.YES_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, "Update?", "Choose", JOptionPane.YES_NO_OPTION);
                 if(confirm==0){
                     this.cont.getDataKehadiran().setVisible(true);
+                    this.cont.getDataKehadiran().setTabel();
                     this.setVisible(false);
                 }
             }
