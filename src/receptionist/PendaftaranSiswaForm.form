@@ -99,7 +99,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Formulir Pendaftaran : "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Formulir Pendaftaran"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">

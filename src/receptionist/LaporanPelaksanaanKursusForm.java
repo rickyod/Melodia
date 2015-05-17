@@ -71,6 +71,7 @@ public class LaporanPelaksanaanKursusForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Pelaksanaan Kursus");
 
         tabelPelaksanaanKursus.setModel(new javax.swing.table.DefaultTableModel(

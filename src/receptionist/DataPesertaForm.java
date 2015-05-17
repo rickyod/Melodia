@@ -76,23 +76,24 @@ public class DataPesertaForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Data Peserta");
 
         tabelDataPeserta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Peserta", "Nama Lengkap", "Tanggal Lahir", "Alamat", "Nomor HP"
+                "ID Peserta", "Nama Lengkap", "Tanggal Lahir", "Alamat", "Nomor HP", "Id Paket", "Id Jadwal", "Tanggal Daftar", "Sisa Pertemuan"
             }
         ));
         jScrollPane1.setViewportView(tabelDataPeserta);

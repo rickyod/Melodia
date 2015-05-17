@@ -136,6 +136,7 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Melodia Music Lesson");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Data Pegawai");
 
         logoutButton.setText("Log Out");

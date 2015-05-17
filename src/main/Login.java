@@ -42,7 +42,6 @@ public class Login extends javax.swing.JFrame {
 
         usernameField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
-        forgotPasswordLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPasswordField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -78,8 +77,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        forgotPasswordLabel.setText("Forgot your password ?");
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Melodia Music Lesson");
         jLabel2.setMaximumSize(new java.awt.Dimension(101, 20));
@@ -111,12 +108,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(forgotPasswordLabel))
                     .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,9 +127,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(29, 29, 29)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(forgotPasswordLabel)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -250,7 +242,6 @@ public class Login extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel forgotPasswordLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
