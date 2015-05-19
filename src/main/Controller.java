@@ -66,6 +66,7 @@ public class Controller {
 
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
+            JOptionPane.showMessageDialog(null, "Connected.");
             statement = conn.createStatement();
             connected = true;
         } catch (SQLException ex) {
