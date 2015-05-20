@@ -271,7 +271,9 @@ public class LaporanDataPegawaiForm extends javax.swing.JFrame {
                 try {
                     Statement sta = this.cont.getStatement();
                     String idPegawai = tabelDataPegawai.getValueAt(index, 0) + "";
-                    String query = String.format("delete from Account where idPegawai = '%s'", idPegawai);
+                    String query = String.format("delete from Transaksi where idPegawai = '%s'", idPegawai);
+                    sta.execute(query);
+                    query = String.format("delete from Account where idPegawai = '%s'", idPegawai);
                     sta.execute(query);
                     query = String.format("delete from DataPegawai where idPegawai = '%s'", idPegawai);
                     boolean exe = sta.execute(query);

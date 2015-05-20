@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import main.Controller;
 
 /*
@@ -74,8 +75,8 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         labelHarga = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jadwalBox = new javax.swing.JComboBox();
         idPegawaiLabel = new javax.swing.JLabel();
+        jadwalBox = new javax.swing.JComboBox();
         backButton = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
@@ -142,13 +143,14 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
 
         jLabel17.setText("Jadwal :");
 
+        idPegawaiLabel.setText("jLabel12");
+
+        jadwalBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- Pilih Jadwal - " }));
         jadwalBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jadwalBoxActionPerformed(evt);
             }
         });
-
-        idPegawaiLabel.setText("jLabel12");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -241,7 +243,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jadwalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(daftarButton)
                 .addContainerGap())
         );
@@ -269,8 +271,10 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                         .addComponent(logoutButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addComponent(jLabel1)))
                         .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -284,17 +288,17 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                     .addComponent(backButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(13, 13, 13)
+                .addGap(20, 20, 20)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void clear(){
+    public void clear() {
         namaLengkapField.setText("");
         tanggalBox.setSelectedIndex(0);
         bulanBox.setSelectedIndex(0);
@@ -306,7 +310,33 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
         jadwalBox.removeAllItems();
         labelHarga.setText(" ");
     }
-    
+
+    public boolean notFilled() {
+        boolean notFilled = false;
+        if (namaLengkapField.getText().equals("")) {
+            notFilled = true;
+        }
+        if (tanggalBox.getSelectedIndex() == 0) {
+            notFilled = true;
+        }
+        if (bulanBox.getSelectedIndex() == 0) {
+            notFilled = true;
+        }
+        if (tahunBox.getSelectedIndex() == 0) {
+            notFilled = true;
+        }
+        if (alamatField.getText().equals("")) {
+            notFilled = true;
+        }
+        if (nomorHPField.getText().equals("")) {
+            notFilled = true;
+        }
+        if (idSiswaField.getText().equals(" ")) {
+            notFilled = true;
+        }
+        return notFilled;
+    }
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.cont.getHomepageRec().setVisible(true);
         this.clear();
@@ -320,34 +350,39 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void daftarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarButtonActionPerformed
-        try {
-            String namaLengkap = this.namaLengkapField.getText();
-            String tglLahir = this.tahunBox.getSelectedItem() + "-" + this.bulanBox.getSelectedItem() + "-" + this.tanggalBox.getSelectedItem();
-            String alamat = this.alamatField.getText();
-            String nomorHp = this.nomorHPField.getText();
-            String idSiswa = this.idSiswaField.getText();
-            String idPaketPilihan = this.idPaket[this.paketComboBox.getSelectedIndex()];
-            String idJadwalPilihan = this.idJadwal[this.jadwalBox.getSelectedIndex()];
-            int totalBiaya = biaya[this.paketComboBox.getSelectedIndex()];
-            String tglDaftar = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','5')", idSiswa, namaLengkap, tglLahir, alamat, nomorHp, idPaketPilihan, idJadwalPilihan, tglDaftar);
-            statement.execute(query);
+        if (notFilled()) {
+            JOptionPane.showMessageDialog(null, "Ada field yang belum diisi.");
+        } else {
+            try {
+                String namaLengkap = this.namaLengkapField.getText();
+                String tglLahir = this.tahunBox.getSelectedItem() + "-" + this.bulanBox.getSelectedItem() + "-" + this.tanggalBox.getSelectedItem();
+                String alamat = this.alamatField.getText();
+                String nomorHp = this.nomorHPField.getText();
+                String idSiswa = this.idSiswaField.getText();
+                String idPaketPilihan = this.idPaket[this.paketComboBox.getSelectedIndex()];
+                String idJadwalPilihan = this.idJadwal[this.jadwalBox.getSelectedIndex()];
+                int totalBiaya = biaya[this.paketComboBox.getSelectedIndex()];
+                String tglDaftar = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+                String query = String.format("INSERT INTO Siswa values ('%s','%s','%s','%s','%s','%s','%s','%s','5')", idSiswa, namaLengkap, tglLahir, alamat, nomorHp, idPaketPilihan, idJadwalPilihan, tglDaftar);
+                statement.execute(query);
 
-            String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-            query = String.format("INSERT INTO Transaksi values ('%s','%s','%s','%s','%s','%s','%s')", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaketPilihan, totalBiaya, tglDaftar, timeStamp);
-            statement.execute(query);
-            query = String.format("select idTransaksi from Transaksi");
-            ResultSet rs = statement.executeQuery(query);
-            String idTransaksi = "";
-            while(rs.next()){
-                idTransaksi = rs.getString("idTransaksi");
+                String timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                query = String.format("INSERT INTO Transaksi values ('%s','%s','%s','%s','%s','%s','%s')", idSiswa, namaLengkap, this.cont.getIdPegawai(), idPaketPilihan, totalBiaya, tglDaftar, timeStamp);
+                statement.execute(query);
+                query = String.format("select idTransaksi from Transaksi");
+                ResultSet rs = statement.executeQuery(query);
+                String idTransaksi = "";
+                while (rs.next()) {
+                    idTransaksi = rs.getString("idTransaksi");
+                }
+                String namaPegawai = this.cont.getNamaPegawai();
+                this.cont.getFormTransaksi().setTransaksi(idTransaksi, tglDaftar, timeStamp, idSiswa, namaLengkap, totalBiaya, idPaketPilihan, namaPegawai);
+                this.cont.getFormTransaksi().setVisible(true);
+                this.clear();
+                this.setVisible(false);
+            } catch (SQLException ex) {
+                Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String namaPegawai = this.cont.getNamaPegawai();
-            this.cont.getFormTransaksi().setTransaksi(idTransaksi, tglDaftar, timeStamp, idSiswa,namaLengkap,totalBiaya,idPaketPilihan,namaPegawai);
-            this.cont.getFormTransaksi().setVisible(true);
-            this.setVisible(false);
-        } catch (SQLException ex) {
-            Logger.getLogger(PendaftaranSiswaForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_daftarButtonActionPerformed
 
@@ -359,7 +394,7 @@ public class PendaftaranSiswaForm extends javax.swing.JFrame {
                 String query = String.format("select * from Jadwal where idPaket = '%s'", idPaket[this.paketComboBox.getSelectedIndex()]);
                 int size = 0;
                 ResultSet rs = statement.executeQuery(query);
-                while(rs.next()){
+                while (rs.next()) {
                     size++;
                 }
                 idJadwal = new String[size];

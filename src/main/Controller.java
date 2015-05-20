@@ -9,9 +9,10 @@ import manager.EditDataPegawaiForm;
 import manager.EditPaketKursusForm;
 import manager.HomepageManager;
 import manager.InsertDataPegawaiForm;
+import manager.InsertJadwalForm;
 import manager.InsertPaketKursusForm;
+import manager.JadwalKursusForm;
 import manager.LaporanDataPegawaiForm;
-import manager.LaporanPaketKursus;
 import manager.PaketKursusForm;
 import receptionist.DaftarUlangForm;
 import receptionist.DataKehadiran;
@@ -47,8 +48,9 @@ public class Controller {
     private HomepageReceptionist homepageRec;
     private InsertPaketKursusForm insertPaketForm;
     private PaketKursusForm paketKursus;
+    private JadwalKursusForm jadwalKursus;
+    private InsertJadwalForm insertJadwal;
     private LaporanKehadiranMainForm laporanKehadiran;
-    private LaporanPaketKursus laporanPaketKursus;
     private LaporanPelaksanaanKursusForm laporanPelaksanaan;
     private Login login;
     private PendaftaranSiswaForm pendaftaranSiswa;
@@ -66,7 +68,6 @@ public class Controller {
 
         try {
             conn = DriverManager.getConnection("jdbc:sqlserver://10.100.70.70;user=i13041;password=rickyod;database=i13041");
-            JOptionPane.showMessageDialog(null, "Connected.");
             statement = conn.createStatement();
             connected = true;
         } catch (SQLException ex) {
@@ -86,8 +87,9 @@ public class Controller {
             this.homepageRec = new HomepageReceptionist(this);
             this.insertPaketForm = new InsertPaketKursusForm(this);
             this.paketKursus = new PaketKursusForm(this);
+            this.jadwalKursus = new JadwalKursusForm(this);
+            this.insertJadwal = new InsertJadwalForm(this);
             this.laporanKehadiran = new LaporanKehadiranMainForm(this);
-            this.laporanPaketKursus = new LaporanPaketKursus(this);
             this.laporanPelaksanaan = new LaporanPelaksanaanKursusForm(this);
             this.formTransaksi = new FormTransaksi(this);
             this.daftarUlang = new DaftarUlangForm(this);
@@ -177,12 +179,16 @@ public class Controller {
         return paketKursus;
     }
 
-    public LaporanKehadiranMainForm getLaporanKehadiran() {
-        return laporanKehadiran;
+    public JadwalKursusForm getJadwalKursus() {
+        return jadwalKursus;
     }
 
-    public LaporanPaketKursus getLaporanPaketKursus() {
-        return laporanPaketKursus;
+    public InsertJadwalForm getInsertJadwal() {
+        return insertJadwal;
+    }
+
+    public LaporanKehadiranMainForm getLaporanKehadiran() {
+        return laporanKehadiran;
     }
 
     public FormTransaksi getFormTransaksi() {

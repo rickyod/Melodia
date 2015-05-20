@@ -54,6 +54,8 @@ public class PaketKursusForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        lihatJadwalButto = new javax.swing.JButton();
+        tambahJadwalButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,39 +119,52 @@ public class PaketKursusForm extends javax.swing.JFrame {
             }
         });
 
+        lihatJadwalButto.setText("Lihat Jadwal");
+        lihatJadwalButto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lihatJadwalButtoActionPerformed(evt);
+            }
+        });
+
+        tambahJadwalButton.setText("Tambah Jadwal");
+        tambahJadwalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahJadwalButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(104, 104, 104)
+                        .addComponent(logoutButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 423, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(backButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(61, 61, 61)
-                                .addComponent(logoutButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(tambahJadwalButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lihatJadwalButto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(insertButton)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(editButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(deleteButton)))
-                        .addContainerGap())))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteButton))
+                            .addComponent(jScrollPane1))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +184,9 @@ public class PaketKursusForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editButton)
                     .addComponent(insertButton)
-                    .addComponent(deleteButton))
+                    .addComponent(deleteButton)
+                    .addComponent(lihatJadwalButto)
+                    .addComponent(tambahJadwalButton))
                 .addGap(6, 6, 6))
         );
 
@@ -232,8 +249,8 @@ public class PaketKursusForm extends javax.swing.JFrame {
             if (confirm == 0) {
                 try {
                     Statement sta = this.cont.getStatement();
-                    String idAlat = tabelPaketKursus.getValueAt(index, 2) + "";
-                    String query = String.format("delete from PaketKursus where jenisAlatMusik = '%s'", idAlat);
+                    String idPaket = tabelPaketKursus.getValueAt(index, 0) + "";
+                    String query = String.format("delete from PaketKursus where idPaket = '%s'", idPaket);
                     boolean exe = sta.execute(query);
                     if (!exe) {
                         JOptionPane.showMessageDialog(null, "Successful.");
@@ -253,6 +270,26 @@ public class PaketKursusForm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void lihatJadwalButtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lihatJadwalButtoActionPerformed
+        this.cont.getJadwalKursus().setVisible(true);
+        this.cont.getJadwalKursus().setTabel();
+        this.setVisible(false);
+    }//GEN-LAST:event_lihatJadwalButtoActionPerformed
+
+    private void tambahJadwalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahJadwalButtonActionPerformed
+        int index = tabelPaketKursus.getSelectedRow();
+        if (index < 0) {
+            JOptionPane.showMessageDialog(null, "Row is not selected.");
+        }
+        else{
+            String idPaket = tabelPaketKursus.getValueAt(index, 0) + "";
+            String namaPaket = tabelPaketKursus.getValueAt(index, 1) + "";
+            this.cont.getInsertJadwal().setData(idPaket,namaPaket);
+            this.cont.getInsertJadwal().setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_tambahJadwalButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -263,7 +300,9 @@ public class PaketKursusForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton lihatJadwalButto;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTable tabelPaketKursus;
+    private javax.swing.JButton tambahJadwalButton;
     // End of variables declaration//GEN-END:variables
 }

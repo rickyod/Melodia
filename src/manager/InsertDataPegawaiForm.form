@@ -23,26 +23,102 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jSeparator3" min="-2" pref="414" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="alamatField" min="-2" pref="282" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="usernameField" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="jPasswordField1" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" pref="4" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tanggalBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="bulanBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="tahunBox" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="idPegawaiField" min="-2" pref="171" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="kotaBox" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="namaField" min="-2" pref="171" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="clearButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="insertButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="backButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jSeparator3" min="-2" pref="414" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -52,15 +128,66 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="backButton" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jSeparator3" min="-2" pref="2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator3" min="-2" pref="2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idPegawaiField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tanggalBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bulanBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tahunBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="kotaBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="alamatField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="clearButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="insertButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,438 +211,351 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator3">
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="idPegawaiField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="namaField" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Component id="tanggalBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="bulanBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="tahunBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="clearButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="insertButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="55" max="32767" attributes="0"/>
-                          <Component id="kotaBox" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="alamatField" min="-2" pref="282" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPasswordField1" pref="136" max="32767" attributes="0"/>
-                              <Component id="usernameField" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="idPegawaiField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="namaField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tanggalBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="bulanBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tahunBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="kotaBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="alamatField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="clearButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="insertButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Insert Data Pegawai"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID Pegawai      : "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nama Lengkap : "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tanggal Lahir   :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="idPegawaiField">
-        </Component>
-        <Component class="javax.swing.JTextField" name="namaField">
-        </Component>
-        <Component class="javax.swing.JButton" name="clearButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Clear"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="insertButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Insert"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="alamatField">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alamat              :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Kota                 :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="kotaBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="99">
-                <StringItem index="0" value="- Pilih Kota -"/>
-                <StringItem index="1" value="Aceh"/>
-                <StringItem index="2" value="Ambon"/>
-                <StringItem index="3" value="Balikpapan"/>
-                <StringItem index="4" value="Bandarlampung"/>
-                <StringItem index="5" value="Bandung"/>
-                <StringItem index="6" value="Banjar"/>
-                <StringItem index="7" value="Banjarmasin"/>
-                <StringItem index="8" value="Banjar Baru"/>
-                <StringItem index="9" value="Batam"/>
-                <StringItem index="10" value="Batu"/>
-                <StringItem index="11" value="Bau-Bau"/>
-                <StringItem index="12" value="Bekasi"/>
-                <StringItem index="13" value="Bengkulu"/>
-                <StringItem index="14" value="Bima"/>
-                <StringItem index="15" value="Binjai"/>
-                <StringItem index="16" value="Bitung"/>
-                <StringItem index="17" value="Blitar"/>
-                <StringItem index="18" value="Bogor"/>
-                <StringItem index="19" value="Bontang"/>
-                <StringItem index="20" value="BukitTinggi"/>
-                <StringItem index="21" value="Cilegon"/>
-                <StringItem index="22" value="Cimahi"/>
-                <StringItem index="23" value="Cirebon"/>
-                <StringItem index="24" value="Denpasar"/>
-                <StringItem index="25" value="Depok"/>
-                <StringItem index="26" value="Dumai"/>
-                <StringItem index="27" value="Gorontalo"/>
-                <StringItem index="28" value="Gunung Sitoli"/>
-                <StringItem index="29" value="Jakarta Barat"/>
-                <StringItem index="30" value="Jakarta Pusat"/>
-                <StringItem index="31" value="Jakarta Selatan"/>
-                <StringItem index="32" value="Jakarta Timur"/>
-                <StringItem index="33" value="Jakarta Utara"/>
-                <StringItem index="34" value="Jambi"/>
-                <StringItem index="35" value="Jayapura"/>
-                <StringItem index="36" value="Kediri"/>
-                <StringItem index="37" value="Kendari"/>
-                <StringItem index="38" value="Kotamobagu"/>
-                <StringItem index="39" value="Kupang"/>
-                <StringItem index="40" value="Langsa"/>
-                <StringItem index="41" value="Lhokseumawe"/>
-                <StringItem index="42" value="Lubuk Linggau"/>
-                <StringItem index="43" value="Madiun"/>
-                <StringItem index="44" value="Magelang"/>
-                <StringItem index="45" value="Makassar"/>
-                <StringItem index="46" value="Malang"/>
-                <StringItem index="47" value="Manado"/>
-                <StringItem index="48" value="Mataram"/>
-                <StringItem index="49" value="Medan"/>
-                <StringItem index="50" value="Metro"/>
-                <StringItem index="51" value="Mojokerto"/>
-                <StringItem index="52" value="Padang"/>
-                <StringItem index="53" value="Padang Sidempuan"/>
-                <StringItem index="54" value="Pagar Alam"/>
-                <StringItem index="55" value="Palangkaraya"/>
-                <StringItem index="56" value="Palembang"/>
-                <StringItem index="57" value="Palopo"/>
-                <StringItem index="58" value="Palu"/>
-                <StringItem index="59" value="Pandang Panjang"/>
-                <StringItem index="60" value="Pangkalpinang"/>
-                <StringItem index="61" value="Pare-Pare"/>
-                <StringItem index="62" value="Pariaman"/>
-                <StringItem index="63" value="Pasuruan"/>
-                <StringItem index="64" value="Payakumbuh"/>
-                <StringItem index="65" value="Pekalongan"/>
-                <StringItem index="66" value="Pekanbaru"/>
-                <StringItem index="67" value="Pematang Siantar"/>
-                <StringItem index="68" value="Pontianak"/>
-                <StringItem index="69" value="Prabumulih"/>
-                <StringItem index="70" value="Probolinggo"/>
-                <StringItem index="71" value="Saban"/>
-                <StringItem index="72" value="Salatiga"/>
-                <StringItem index="73" value="Samarinda"/>
-                <StringItem index="74" value="Sawahlunto"/>
-                <StringItem index="75" value="Semarang"/>
-                <StringItem index="76" value="Serang"/>
-                <StringItem index="77" value="Sibolga"/>
-                <StringItem index="78" value="Singkawang"/>
-                <StringItem index="79" value="Solok"/>
-                <StringItem index="80" value="Sorong"/>
-                <StringItem index="81" value="Subulussalam"/>
-                <StringItem index="82" value="Sukabumi"/>
-                <StringItem index="83" value="Sungai Penuh"/>
-                <StringItem index="84" value="Surabaya"/>
-                <StringItem index="85" value="Surakarta"/>
-                <StringItem index="86" value="Tangerang"/>
-                <StringItem index="87" value="Tangerang Selatan"/>
-                <StringItem index="88" value="Tanjung Balai"/>
-                <StringItem index="89" value="Tanjung Pinang"/>
-                <StringItem index="90" value="Tarakan"/>
-                <StringItem index="91" value="Tasikmalaya"/>
-                <StringItem index="92" value="Tebing Tinggi"/>
-                <StringItem index="93" value="Tegal"/>
-                <StringItem index="94" value="Ternate"/>
-                <StringItem index="95" value="Tidore Kepulauan"/>
-                <StringItem index="96" value="Tomohon"/>
-                <StringItem index="97" value="Tual"/>
-                <StringItem index="98" value="Yogyakarta"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="tanggalBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="32">
-                <StringItem index="0" value="Tanggal"/>
-                <StringItem index="1" value="1"/>
-                <StringItem index="2" value="2"/>
-                <StringItem index="3" value="3"/>
-                <StringItem index="4" value="4"/>
-                <StringItem index="5" value="5"/>
-                <StringItem index="6" value="6"/>
-                <StringItem index="7" value="7"/>
-                <StringItem index="8" value="8"/>
-                <StringItem index="9" value="9"/>
-                <StringItem index="10" value="10"/>
-                <StringItem index="11" value="11"/>
-                <StringItem index="12" value="12"/>
-                <StringItem index="13" value="13"/>
-                <StringItem index="14" value="14"/>
-                <StringItem index="15" value="15"/>
-                <StringItem index="16" value="16"/>
-                <StringItem index="17" value="17"/>
-                <StringItem index="18" value="18"/>
-                <StringItem index="19" value="19"/>
-                <StringItem index="20" value="20"/>
-                <StringItem index="21" value="21"/>
-                <StringItem index="22" value="22"/>
-                <StringItem index="23" value="23"/>
-                <StringItem index="24" value="24"/>
-                <StringItem index="25" value="25"/>
-                <StringItem index="26" value="26"/>
-                <StringItem index="27" value="27"/>
-                <StringItem index="28" value="28"/>
-                <StringItem index="29" value="29"/>
-                <StringItem index="30" value="30"/>
-                <StringItem index="31" value="31"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="bulanBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="13">
-                <StringItem index="0" value="Bulan"/>
-                <StringItem index="1" value="1"/>
-                <StringItem index="2" value="2"/>
-                <StringItem index="3" value="3"/>
-                <StringItem index="4" value="4"/>
-                <StringItem index="5" value="5"/>
-                <StringItem index="6" value="6"/>
-                <StringItem index="7" value="7"/>
-                <StringItem index="8" value="8"/>
-                <StringItem index="9" value="9"/>
-                <StringItem index="10" value="10"/>
-                <StringItem index="11" value="11"/>
-                <StringItem index="12" value="12"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="tahunBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="62">
-                <StringItem index="0" value="Tahun"/>
-                <StringItem index="1" value="1950"/>
-                <StringItem index="2" value="1951"/>
-                <StringItem index="3" value="1952"/>
-                <StringItem index="4" value="1953"/>
-                <StringItem index="5" value="1954"/>
-                <StringItem index="6" value="1955"/>
-                <StringItem index="7" value="1956"/>
-                <StringItem index="8" value="1957"/>
-                <StringItem index="9" value="1958"/>
-                <StringItem index="10" value="1959"/>
-                <StringItem index="11" value="1960"/>
-                <StringItem index="12" value="1961"/>
-                <StringItem index="13" value="1962"/>
-                <StringItem index="14" value="1963"/>
-                <StringItem index="15" value="1964"/>
-                <StringItem index="16" value="1965"/>
-                <StringItem index="17" value="1966"/>
-                <StringItem index="18" value="1967"/>
-                <StringItem index="19" value="1968"/>
-                <StringItem index="20" value="1969"/>
-                <StringItem index="21" value="1970"/>
-                <StringItem index="22" value="1971"/>
-                <StringItem index="23" value="1972"/>
-                <StringItem index="24" value="1973"/>
-                <StringItem index="25" value="1974"/>
-                <StringItem index="26" value="1975"/>
-                <StringItem index="27" value="1976"/>
-                <StringItem index="28" value="1977"/>
-                <StringItem index="29" value="1978"/>
-                <StringItem index="30" value="1979"/>
-                <StringItem index="31" value="1980"/>
-                <StringItem index="32" value="1981"/>
-                <StringItem index="33" value="1982"/>
-                <StringItem index="34" value="1983"/>
-                <StringItem index="35" value="1984"/>
-                <StringItem index="36" value="1985"/>
-                <StringItem index="37" value="1986"/>
-                <StringItem index="38" value="1987"/>
-                <StringItem index="39" value="1988"/>
-                <StringItem index="40" value="1989"/>
-                <StringItem index="41" value="1990"/>
-                <StringItem index="42" value="1991"/>
-                <StringItem index="43" value="1992"/>
-                <StringItem index="44" value="1993"/>
-                <StringItem index="45" value="1994"/>
-                <StringItem index="46" value="1995"/>
-                <StringItem index="47" value="1996"/>
-                <StringItem index="48" value="1997"/>
-                <StringItem index="49" value="1998"/>
-                <StringItem index="50" value="1999"/>
-                <StringItem index="51" value="2000"/>
-                <StringItem index="52" value="2001"/>
-                <StringItem index="53" value="2002"/>
-                <StringItem index="54" value="2003"/>
-                <StringItem index="55" value="2004"/>
-                <StringItem index="56" value="2005"/>
-                <StringItem index="57" value="2006"/>
-                <StringItem index="58" value="2007"/>
-                <StringItem index="59" value="2008"/>
-                <StringItem index="60" value="2009"/>
-                <StringItem index="61" value="2010"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Username         :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="usernameField">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Password          :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Pegawai"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tanggal Lahir"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idPegawaiField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idPegawaiFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="namaField">
+    </Component>
+    <Component class="javax.swing.JButton" name="clearButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Clear"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="insertButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insert"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="alamatField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alamat"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kota"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="kotaBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="99">
+            <StringItem index="0" value="- Pilih Kota -"/>
+            <StringItem index="1" value="Aceh"/>
+            <StringItem index="2" value="Ambon"/>
+            <StringItem index="3" value="Balikpapan"/>
+            <StringItem index="4" value="Bandarlampung"/>
+            <StringItem index="5" value="Bandung"/>
+            <StringItem index="6" value="Banjar"/>
+            <StringItem index="7" value="Banjarmasin"/>
+            <StringItem index="8" value="Banjar Baru"/>
+            <StringItem index="9" value="Batam"/>
+            <StringItem index="10" value="Batu"/>
+            <StringItem index="11" value="Bau-Bau"/>
+            <StringItem index="12" value="Bekasi"/>
+            <StringItem index="13" value="Bengkulu"/>
+            <StringItem index="14" value="Bima"/>
+            <StringItem index="15" value="Binjai"/>
+            <StringItem index="16" value="Bitung"/>
+            <StringItem index="17" value="Blitar"/>
+            <StringItem index="18" value="Bogor"/>
+            <StringItem index="19" value="Bontang"/>
+            <StringItem index="20" value="BukitTinggi"/>
+            <StringItem index="21" value="Cilegon"/>
+            <StringItem index="22" value="Cimahi"/>
+            <StringItem index="23" value="Cirebon"/>
+            <StringItem index="24" value="Denpasar"/>
+            <StringItem index="25" value="Depok"/>
+            <StringItem index="26" value="Dumai"/>
+            <StringItem index="27" value="Gorontalo"/>
+            <StringItem index="28" value="Gunung Sitoli"/>
+            <StringItem index="29" value="Jakarta Barat"/>
+            <StringItem index="30" value="Jakarta Pusat"/>
+            <StringItem index="31" value="Jakarta Selatan"/>
+            <StringItem index="32" value="Jakarta Timur"/>
+            <StringItem index="33" value="Jakarta Utara"/>
+            <StringItem index="34" value="Jambi"/>
+            <StringItem index="35" value="Jayapura"/>
+            <StringItem index="36" value="Kediri"/>
+            <StringItem index="37" value="Kendari"/>
+            <StringItem index="38" value="Kotamobagu"/>
+            <StringItem index="39" value="Kupang"/>
+            <StringItem index="40" value="Langsa"/>
+            <StringItem index="41" value="Lhokseumawe"/>
+            <StringItem index="42" value="Lubuk Linggau"/>
+            <StringItem index="43" value="Madiun"/>
+            <StringItem index="44" value="Magelang"/>
+            <StringItem index="45" value="Makassar"/>
+            <StringItem index="46" value="Malang"/>
+            <StringItem index="47" value="Manado"/>
+            <StringItem index="48" value="Mataram"/>
+            <StringItem index="49" value="Medan"/>
+            <StringItem index="50" value="Metro"/>
+            <StringItem index="51" value="Mojokerto"/>
+            <StringItem index="52" value="Padang"/>
+            <StringItem index="53" value="Padang Sidempuan"/>
+            <StringItem index="54" value="Pagar Alam"/>
+            <StringItem index="55" value="Palangkaraya"/>
+            <StringItem index="56" value="Palembang"/>
+            <StringItem index="57" value="Palopo"/>
+            <StringItem index="58" value="Palu"/>
+            <StringItem index="59" value="Pandang Panjang"/>
+            <StringItem index="60" value="Pangkalpinang"/>
+            <StringItem index="61" value="Pare-Pare"/>
+            <StringItem index="62" value="Pariaman"/>
+            <StringItem index="63" value="Pasuruan"/>
+            <StringItem index="64" value="Payakumbuh"/>
+            <StringItem index="65" value="Pekalongan"/>
+            <StringItem index="66" value="Pekanbaru"/>
+            <StringItem index="67" value="Pematang Siantar"/>
+            <StringItem index="68" value="Pontianak"/>
+            <StringItem index="69" value="Prabumulih"/>
+            <StringItem index="70" value="Probolinggo"/>
+            <StringItem index="71" value="Saban"/>
+            <StringItem index="72" value="Salatiga"/>
+            <StringItem index="73" value="Samarinda"/>
+            <StringItem index="74" value="Sawahlunto"/>
+            <StringItem index="75" value="Semarang"/>
+            <StringItem index="76" value="Serang"/>
+            <StringItem index="77" value="Sibolga"/>
+            <StringItem index="78" value="Singkawang"/>
+            <StringItem index="79" value="Solok"/>
+            <StringItem index="80" value="Sorong"/>
+            <StringItem index="81" value="Subulussalam"/>
+            <StringItem index="82" value="Sukabumi"/>
+            <StringItem index="83" value="Sungai Penuh"/>
+            <StringItem index="84" value="Surabaya"/>
+            <StringItem index="85" value="Surakarta"/>
+            <StringItem index="86" value="Tangerang"/>
+            <StringItem index="87" value="Tangerang Selatan"/>
+            <StringItem index="88" value="Tanjung Balai"/>
+            <StringItem index="89" value="Tanjung Pinang"/>
+            <StringItem index="90" value="Tarakan"/>
+            <StringItem index="91" value="Tasikmalaya"/>
+            <StringItem index="92" value="Tebing Tinggi"/>
+            <StringItem index="93" value="Tegal"/>
+            <StringItem index="94" value="Ternate"/>
+            <StringItem index="95" value="Tidore Kepulauan"/>
+            <StringItem index="96" value="Tomohon"/>
+            <StringItem index="97" value="Tual"/>
+            <StringItem index="98" value="Yogyakarta"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tanggalBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="32">
+            <StringItem index="0" value="Tanggal"/>
+            <StringItem index="1" value="1"/>
+            <StringItem index="2" value="2"/>
+            <StringItem index="3" value="3"/>
+            <StringItem index="4" value="4"/>
+            <StringItem index="5" value="5"/>
+            <StringItem index="6" value="6"/>
+            <StringItem index="7" value="7"/>
+            <StringItem index="8" value="8"/>
+            <StringItem index="9" value="9"/>
+            <StringItem index="10" value="10"/>
+            <StringItem index="11" value="11"/>
+            <StringItem index="12" value="12"/>
+            <StringItem index="13" value="13"/>
+            <StringItem index="14" value="14"/>
+            <StringItem index="15" value="15"/>
+            <StringItem index="16" value="16"/>
+            <StringItem index="17" value="17"/>
+            <StringItem index="18" value="18"/>
+            <StringItem index="19" value="19"/>
+            <StringItem index="20" value="20"/>
+            <StringItem index="21" value="21"/>
+            <StringItem index="22" value="22"/>
+            <StringItem index="23" value="23"/>
+            <StringItem index="24" value="24"/>
+            <StringItem index="25" value="25"/>
+            <StringItem index="26" value="26"/>
+            <StringItem index="27" value="27"/>
+            <StringItem index="28" value="28"/>
+            <StringItem index="29" value="29"/>
+            <StringItem index="30" value="30"/>
+            <StringItem index="31" value="31"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="bulanBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="13">
+            <StringItem index="0" value="Bulan"/>
+            <StringItem index="1" value="1"/>
+            <StringItem index="2" value="2"/>
+            <StringItem index="3" value="3"/>
+            <StringItem index="4" value="4"/>
+            <StringItem index="5" value="5"/>
+            <StringItem index="6" value="6"/>
+            <StringItem index="7" value="7"/>
+            <StringItem index="8" value="8"/>
+            <StringItem index="9" value="9"/>
+            <StringItem index="10" value="10"/>
+            <StringItem index="11" value="11"/>
+            <StringItem index="12" value="12"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="tahunBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="62">
+            <StringItem index="0" value="Tahun"/>
+            <StringItem index="1" value="1950"/>
+            <StringItem index="2" value="1951"/>
+            <StringItem index="3" value="1952"/>
+            <StringItem index="4" value="1953"/>
+            <StringItem index="5" value="1954"/>
+            <StringItem index="6" value="1955"/>
+            <StringItem index="7" value="1956"/>
+            <StringItem index="8" value="1957"/>
+            <StringItem index="9" value="1958"/>
+            <StringItem index="10" value="1959"/>
+            <StringItem index="11" value="1960"/>
+            <StringItem index="12" value="1961"/>
+            <StringItem index="13" value="1962"/>
+            <StringItem index="14" value="1963"/>
+            <StringItem index="15" value="1964"/>
+            <StringItem index="16" value="1965"/>
+            <StringItem index="17" value="1966"/>
+            <StringItem index="18" value="1967"/>
+            <StringItem index="19" value="1968"/>
+            <StringItem index="20" value="1969"/>
+            <StringItem index="21" value="1970"/>
+            <StringItem index="22" value="1971"/>
+            <StringItem index="23" value="1972"/>
+            <StringItem index="24" value="1973"/>
+            <StringItem index="25" value="1974"/>
+            <StringItem index="26" value="1975"/>
+            <StringItem index="27" value="1976"/>
+            <StringItem index="28" value="1977"/>
+            <StringItem index="29" value="1978"/>
+            <StringItem index="30" value="1979"/>
+            <StringItem index="31" value="1980"/>
+            <StringItem index="32" value="1981"/>
+            <StringItem index="33" value="1982"/>
+            <StringItem index="34" value="1983"/>
+            <StringItem index="35" value="1984"/>
+            <StringItem index="36" value="1985"/>
+            <StringItem index="37" value="1986"/>
+            <StringItem index="38" value="1987"/>
+            <StringItem index="39" value="1988"/>
+            <StringItem index="40" value="1989"/>
+            <StringItem index="41" value="1990"/>
+            <StringItem index="42" value="1991"/>
+            <StringItem index="43" value="1992"/>
+            <StringItem index="44" value="1993"/>
+            <StringItem index="45" value="1994"/>
+            <StringItem index="46" value="1995"/>
+            <StringItem index="47" value="1996"/>
+            <StringItem index="48" value="1997"/>
+            <StringItem index="49" value="1998"/>
+            <StringItem index="50" value="1999"/>
+            <StringItem index="51" value="2000"/>
+            <StringItem index="52" value="2001"/>
+            <StringItem index="53" value="2002"/>
+            <StringItem index="54" value="2003"/>
+            <StringItem index="55" value="2004"/>
+            <StringItem index="56" value="2005"/>
+            <StringItem index="57" value="2006"/>
+            <StringItem index="58" value="2007"/>
+            <StringItem index="59" value="2008"/>
+            <StringItem index="60" value="2009"/>
+            <StringItem index="61" value="2010"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Username"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="usernameField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Password"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel15">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=":"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Insert Data Pegawai"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JButton" name="backButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>

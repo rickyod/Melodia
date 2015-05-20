@@ -226,7 +226,6 @@ public class DataKehadiran extends javax.swing.JFrame {
                 while(rs.next()){
                     exist++;
                 }
-                System.out.println(exist);
                 if (exist == 0) {
                     Date date = null;
                     date = sdf.parse(tanggalHariIni);
