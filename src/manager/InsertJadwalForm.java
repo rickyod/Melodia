@@ -28,6 +28,7 @@ public class InsertJadwalForm extends javax.swing.JFrame {
     public InsertJadwalForm(Controller cont) {
         this.cont = cont;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

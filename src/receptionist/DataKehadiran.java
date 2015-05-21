@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import main.Controller;
 import manager.LaporanDataPegawaiForm;
 import model.TableModelDataKehadiran;
@@ -231,6 +232,18 @@ public class DataKehadiran extends javax.swing.JFrame {
                     date = sdf.parse(tanggalHariIni);
                     DateFormat df = new SimpleDateFormat("EEEE");
                     String hari = df.format(date);
+                    switch(hari){
+                        case "Monday" : hari = "Senin"; break;
+                        case "Tuesday" : hari = "Selasa"; break;
+                        case "Wednesday" : hari = "Rabu"; break;
+                        case "Thursday" : hari = "Kamis"; break;
+                        case "Friday" : hari = "Jumat"; break; 
+                        case "Saturday" : hari = "Sabtu"; break;
+                        case "Sunday" : hari = "Minggu";
+                    }
+                    if(hari.equals("Minggu")){
+                        JOptionPane.showMessageDialog(null, "Hari Minggu tidak ada kursus");
+                    }
                     String[] idSiswa;
                     String[] idPaket;
                     query = String.format("select count(idSiswa) as jumlah from jadwal inner join siswa on Jadwal.idJadwal = Siswa.idJadwal where hari ='%s'", hari);
